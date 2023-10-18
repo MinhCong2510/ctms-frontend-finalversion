@@ -118,3 +118,31 @@ button:focus-visible {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
+
+.FullNavBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #FF0000;
+    color: #FFFFFF;
+}
+
+.Filter_Bar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: static;
+    align-content: space-around;
+    justify-content: space-around;
+}
+
+.TrialOrg_BlockInfo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-items: start;
+    color: #FFFFFF;
+    background-color: #034370;
+    padding: 10px;
+}
