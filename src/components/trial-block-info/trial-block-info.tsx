@@ -23,7 +23,7 @@ export const Trial_BlockInfo = ({ className, id, context }: Trial_BlockInfoProps
                     height: 150,
                     width: 150,
                     objectFit: 'cover',
-                }}
+                }} />
         </div>
 
     </div>;

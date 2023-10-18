@@ -11,11 +11,13 @@ export interface HeaderProps {
  */
 export const Header = ({ className }: HeaderProps) => {
     return <div className="Header">
-        <div><img src="https://d1.awsstatic.com/apac/customer-references-logos-(%401x---%402x)/eHealthNSW_Logo%402x.7bf59f1d50bacc6c378cb4f49be66ac88bc1201a.png"
+        <div>
+        <img src="https://d1.awsstatic.com/apac/customer-references-logos-(%401x---%402x)/eHealthNSW_Logo%402x.7bf59f1d50bacc6c378cb4f49be66ac88bc1201a.png"
             style={{
                 paddingRight: '10px',
                 paddingLeft: '10px',
-            }}</div>
+            }} />
+            </div>
         <div className="Header_Interaction">
             <img src="https://w7.pngwing.com/pngs/608/913/png-transparent-computer-icons-google-search-symbol-mobile-search-search-for-miscellaneous-logo-mobile-phones-thumbnail.png"
                 style={{
@@ -23,7 +25,7 @@ export const Header = ({ className }: HeaderProps) => {
                     width: 35,
                     paddingRight: '10px',
                     paddingLeft: '10px',
-                }}
+                }} />
             <img src="https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png"
                 style={{
                     height: 35,

@@ -18,15 +18,17 @@ export interface HomePageProps {
 export const HomePage = ({ className }: HomePageProps) => {
     return <div >
         <Header />
-        <h2>Trials</h2>
-        <Create_NewTrial_Button />
-        <br/>
-        <div className="Trial_HomePage">
-            <Trial_BlockInfo id="1" context="Recruiting" />
-            <Trial_BlockInfo id="2" context="Suspend" />
-            <Trial_BlockInfo id="3" context="Terminal" />
-            <Trial_BlockInfo id="4" context="Completed" />
+        <div className={styles.Content}>
+            <div className={styles.TrialsPageHeader}>
+                <h2>Trials</h2>
+                <Create_NewTrial_Button />
+            </div>
+            <div className="Trial_HomePage">
+                <Trial_BlockInfo id="1" context="Recruiting" />
+                <Trial_BlockInfo id="2" context="Suspend" />
+                <Trial_BlockInfo id="3" context="Terminal" />
+                <Trial_BlockInfo id="4" context="Completed" />
 
-        </div>
-    </div>;
+            </div></div>
+        <br /></div>;
 };
