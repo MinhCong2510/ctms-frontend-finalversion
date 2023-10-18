@@ -1,2 +1,14 @@
-.root {
+.root {}
+
+.TrialsPageHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Content {
+    padding-top: 104px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
