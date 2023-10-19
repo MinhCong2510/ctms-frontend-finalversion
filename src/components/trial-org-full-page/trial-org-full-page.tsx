@@ -22,28 +22,16 @@ export interface TrialOrg_FullPageProps {
 export const TrialOrg_FullPage = ({ className }: TrialOrg_FullPageProps) => {
     return <div >
         <Header />
-        <div >
-            <FullNavBar />
-        </div>
-        <div className={styles.TrialsPageHeader}>
+        <FullNavBar />
+        <div className={classNames(styles.TrialsPageHeader, 'TrialOrg_Header')}>
             <h1>Trial Organization</h1>
-            <Create_NewTrialOrg_button />
-        </div>
+            <Create_NewTrialOrg_button /></div>
+        <Filter_Component />
 
-        <div >
-            <Filter_Component />
+        <div className="Trial_HomePage">
 
 
             <TrialOrg_BlockInfo name="ABC" id="123" contactNumber="02......" />
             <TrialOrg_BlockInfo name="DEF" id="456" contactNumber="02....." />
-            <TrialOrg_BlockInfo name="GHI" id="789" contactNumber="02....." />
-            <TrialOrg_BlockInfo name="JKL" id="901" contactNumber="02....." />
-
-        </div>
-
-
-
-
-
-    </div>
+            <TrialOrg_BlockInfo name="GHI" id="789" contactNumber="02....." /></div></div>
 };

@@ -14,25 +14,40 @@ export const Filter_Component = ({ className, }: Filter_ComponentProps) => {
     return <div className="Filter_Bar">
         <select>
             <option>Sort by</option>
-            <option>Filter by Name</option>
-
-            <option>Filter from A to Z</option>
-            <option>Filter from Z to A</option>
+            <option>Lastest to Oldest</option>
+            <option>Oldest to Lastest</option>
+            <option>A to Z</option>
+            <option>Z to A</option>
 
         </select>
         <select>
-            <option>Filter by Status</option>
+            <option>Status</option>
             <option>Recruiting</option>
             <option>Completed</option>
             <option>Suspended</option>
             <option>Terminated</option>
         </select>
         <select>
-            <option>Filter by Trial Organization</option>
-            <option>Filter by Name</option>
-            <option>Filter by ID</option>
-            <option>Filter by Contact Number</option>
+            <option>Organization</option>
+            <option>NSW</option>
+            <option>VIC</option>
+            <option>QLD</option>
+            <option>TAS</option>
+            <option>SA</option>
+            <option>NT</option>
+            <option>WA</option>
+            <option>International</option>
         </select>
+
+        <select>
+        <option>Date</option>
+        <option>within 1 months</option>
+        <option>within 3 months</option>
+        <option>within 6 months</option>
+        <option>within 12 months</option>
+        
+        </select>
+        
 
     </div>;
 };

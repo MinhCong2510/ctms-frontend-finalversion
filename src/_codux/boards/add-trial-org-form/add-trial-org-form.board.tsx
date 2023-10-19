@@ -5,4 +5,7 @@ export default createBoard({
     name: 'Add_TrialOrg_Form',
     Board: () => <Add_TrialOrg_Form />,
     isSnippet: true,
+    environmentProps: {
+        canvasHeight: 203
+    }
 });

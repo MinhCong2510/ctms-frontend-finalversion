@@ -13,13 +13,14 @@ export interface Add_TrialOrg_FormProps {
  */
 
 export const Add_TrialOrg_Form = ({ className }: Add_TrialOrg_FormProps) => {
-    return <div >
+    return <div className="Add_Trial">
         <h3>Add Trial Organization</h3>
-        <div>
+        <div className="Add_Trial_Form">
             <Input_Component context="Name " />
             <Input_Component context="Contact Number " />
+            <Input_Component context="Sponsor for " />
         </div>
-        <button className="CreateTrialButton">Add</button>
+        <button className="CreateTrialButton">Add New Trial Organization</button>
 
 
 

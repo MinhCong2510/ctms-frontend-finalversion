@@ -4,7 +4,7 @@ import styles from './input-component.module.scss';
 export interface Input_ComponentProps {
     className?: string;
     context?: string;
-    
+
 }
 
 /**
@@ -13,6 +13,6 @@ export interface Input_ComponentProps {
  */
 export const Input_Component = ({ className, context }: Input_ComponentProps) => {
     return <div >
-        {context}:<input   />
+        {context}:<input />
     </div>;
 };

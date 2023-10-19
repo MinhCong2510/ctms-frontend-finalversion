@@ -5,6 +5,7 @@ export interface TrialOrg_BlockInfoProps {
     className?: string;
     name?: string;
     id?: string;
+    location?:string;
     contactNumber?: number;
 }
 
@@ -12,7 +13,7 @@ export interface TrialOrg_BlockInfoProps {
  * This component was created using Codux's Default new component template.
  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522
  */
-export const TrialOrg_BlockInfo = ({ className, name, contactNumber, id }: TrialOrg_BlockInfoProps) => {
+export const TrialOrg_BlockInfo = ({ className, name, contactNumber, id,location }: TrialOrg_BlockInfoProps) => {
     return <div className="TrialOrg_BlockInfo">
         <img src="https://static.vecteezy.com/system/resources/previews/007/126/739/non_2x/question-mark-icon-free-vector.jpg"
             style={{
@@ -22,11 +23,14 @@ export const TrialOrg_BlockInfo = ({ className, name, contactNumber, id }: Trial
                 width: 150,
                 objectFit: 'cover',
             }} />
-        <h4>Trial Organization - {name}
+        <h4>Organization - {name}
         <br/>
         ID: {id}
         <br/>
-        Contact Number:{contactNumber}</h4>
+        Contact:{contactNumber}
+        <br/>
+        Location: {location}
+        </h4>
         
     </div>;
 };

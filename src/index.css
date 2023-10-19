@@ -89,7 +89,7 @@ button:focus-visible {
     flex-wrap: nowrap;
     grid-template-columns: 1fr 1fr;
     justify-content: space-between;
-    position: fixed;
+    position: static;
     width: 100%;
     background-color: #FFFFFF;
     border-bottom: 3px solid black;
@@ -129,7 +129,7 @@ button:focus-visible {
 }
 
 .Filter_Bar {
-    display: flex;
+    display: inline-block;
     flex-direction: column;
     gap: 20px;
     position: static;
@@ -145,4 +145,73 @@ button:focus-visible {
     color: #FFFFFF;
     background-color: #034370;
     padding: 10px;
+}
+
+.Trial_HomePage_Description {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    color: #034370;
+    box-shadow: 0 3px 27px rgba(0, 0, 0, 0.15);
+    opacity: 1;
+    flex-wrap: wrap;
+}
+
+.Trial_HomePage_ContentBlock {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    gap: 10px;
+}
+
+.TrialOrg_Header {
+    display: flex;
+    flex-direction: row;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-items: end;
+    justify-content: space-between;
+}
+
+.TrialOrg_Content {
+    display: flex;
+    flex-direction: row;
+}
+
+.Trial_Obs_List {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    gap: 10px;
+}
+
+.Trial_Obs_ViewReport {
+    display: grid;
+    background-color: #034370;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    grid-auto-flow: column;
+    align-items: end;
+}
+
+.Add_Trial_Form {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.Add_Trial {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    flex-wrap: nowrap;
+    gap: 10px;
+}
+
+.Login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    color: #FF0000;
 }

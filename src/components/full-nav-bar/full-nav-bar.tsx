@@ -16,6 +16,6 @@ export const FullNavBar = ({ className }: FullNavBarProps) => {
         <NavComponent context="Home" />
         <NavComponent context="Trials" />
         <NavComponent context="Trial Organizations" />
-        <NavComponent context="Patients???" />
+       
     </div>;
 };
