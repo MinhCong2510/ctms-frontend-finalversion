@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 import classNames from 'classnames';
 import styles from './home-page.module.scss';
 import { Header } from '../header/header';
@@ -22,24 +24,41 @@ export interface HomePageProps {
 
 
 export const HomePage = ({ className }: HomePageProps) => {
+    const [trials, setTrials] = useState([]);
+
+    useEffect(() => {
+        fetchTrials();
+    }, [])
+    
+    function fetchTrials()
+    {
+        fetch('http://localhost:8000/api/trials/')
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            setTrials(data);
+        })
+        .catch((err) => {
+            console.log(err.message);
+        });
+    }
+
+    const listTrials = trials.map(trial => 
+        // <li>{contact.id} | {contact.name}</li>
+        <Trial_BlockInfo key={trial['trialid']} id={trial['trialid']} context={trial['status']}/>
+    )
+    
     return <div >
         <Header />
         <FullNavBar />
         <div>
             <div className="TrialOrg_Header">
                 <h1>Trials</h1>
-                <Create_NewTrial_Button /></div>
+                <Create_NewTrial_Button />    
+            </div>
             <Filter_Component />
             <div className="Trial_HomePage">
-
-
-
-                <Trial_BlockInfo id="1" context="Recruiting" />
-                <Trial_BlockInfo id="2" context="Suspend" />
-                <Trial_BlockInfo id="3" context="Terminal" />
-                <Trial_BlockInfo id="4" context="Completed" />
-                <Trial_BlockInfo id="5" context="Completed" />
-
+                {listTrials}
             </div>
             <div className={classNames(styles.TrialsPageHeader, 'TrialOrg_Header')}>
             <h1>Trial Organization</h1>
