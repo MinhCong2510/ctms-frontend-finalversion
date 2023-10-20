@@ -6,7 +6,7 @@ export interface TrialOrg_BlockInfoProps {
     name?: string;
     id?: string;
     location?:string;
-    contactNumber?: number;
+    contactNumber?: string;
 }
 
 /**

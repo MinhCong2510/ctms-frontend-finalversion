@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import styles from './login.module.scss';
+import { Link, Navigate } from 'react-router-dom';
 
 export interface LoginProps {
     className?: string;
@@ -22,8 +23,8 @@ export const Login = ({ className }: LoginProps) => {
         <input type="password" />
         
         <br /><br />
-        <input type="submit" value="Login" className="CreateTrialButton" />
-        
+        <Link to='/home'>Login</Link>
+
         
         </form>
 
