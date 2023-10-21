@@ -8,6 +8,8 @@ import styles from './App.module.scss';
 import { HomePage } from './components/home-page/home-page';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import { Login } from './components/login/login';
+import { Add_NewTrial_Form } from './components/add-new-trial-form/add-new-trial-form';
+
 
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
         <Routes>
             <Route index element={<Login />}></Route>
             <Route path='/home' element={<HomePage />}></Route>
+            <Route path='/Add_NewTrial_Form' element={<Add_NewTrial_Form/>}><Route>
         </Routes>
     </BrowserRouter>
     );

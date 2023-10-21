@@ -9,7 +9,7 @@ import { FullNavBar } from '../full-nav-bar/full-nav-bar';
 import { Filter_Component } from '../filter-component/filter-component';
 import { Create_NewTrialOrg_button } from '../create-new-trial-org-button/create-new-trial-org-button';
 import { TrialOrg_BlockInfo } from '../trial-org-block-info/trial-org-block-info';
-
+import { Add_NewTrial_Form } from '../../../components/add-new-trial-form/add-new-trial-form';
 
 
 export interface HomePageProps {
@@ -54,7 +54,7 @@ export const HomePage = ({ className }: HomePageProps) => {
         <div>
             <div className="TrialOrg_Header">
                 <h1>Trials</h1>
-                <Create_NewTrial_Button />    
+                <Link to="Add_NewTrial_Form"><Create_NewTrial_Button /> </Link>
             </div>
             <Filter_Component />
             <div className="Trial_HomePage">

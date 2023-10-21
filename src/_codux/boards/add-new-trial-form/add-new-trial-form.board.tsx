@@ -6,6 +6,7 @@ export default createBoard({
     Board: () => <Add_NewTrial_Form />,
     isSnippet: true,
     environmentProps: {
-        canvasWidth: 256
+        canvasWidth: 1024,
+        canvasHeight: 640
     }
 });

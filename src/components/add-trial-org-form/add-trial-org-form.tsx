@@ -1,6 +1,8 @@
 import classNames from 'classnames';
 import styles from './add-trial-org-form.module.scss';
 import { Input_Component } from '../input-component/input-component';
+import { Header } from '../header/header';
+import { FullNavBar } from '../full-nav-bar/full-nav-bar';
 
 export interface Add_TrialOrg_FormProps {
     className?: string;
@@ -12,17 +14,27 @@ export interface Add_TrialOrg_FormProps {
  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522
  */
 
+
+
 export const Add_TrialOrg_Form = ({ className }: Add_TrialOrg_FormProps) => {
-    return <div className="Add_Trial">
-        <h3>Add Trial Organization</h3>
-        <div className="Add_Trial_Form">
-            <Input_Component context="Name " />
-            <Input_Component context="Contact Number " />
-            <Input_Component context="Sponsor for " />
+    return <div>
+
+        <Header />
+        <FullNavBar />
+
+
+        <div className="Add_Trial">
+
+            <h3>Add Trial Organization</h3>
+            <div className="Add_Trial_Form">
+                <Input_Component context="Name " />
+                <Input_Component context="Contact Number " />
+                <Input_Component context="Sponsor for " />
+                <Input_Component context="Location " />
+            </div>
+            <button className="CreateTrialButton">Add New Trial Organization</button>
+
         </div>
-        <button className="CreateTrialButton">Add New Trial Organization</button>
-
-
 
     </div>;
 };

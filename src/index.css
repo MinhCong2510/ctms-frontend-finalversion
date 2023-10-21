@@ -14,7 +14,7 @@
 }
 
 #root {
-    width:100%;
+    width: 100%;
 }
 
 a {
@@ -204,7 +204,7 @@ button:focus-visible {
 .Add_Trial {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
     flex-wrap: nowrap;
     gap: 10px;
 }
