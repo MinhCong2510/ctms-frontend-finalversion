@@ -3,6 +3,8 @@ import styles from './trial-observation.module.scss';
 import { Header } from '../header/header';
 import { FullNavBar } from '../full-nav-bar/full-nav-bar';
 import { Trial_Observation_Block } from '../trial-observation-block/trial-observation-block';
+import { BrowserRouter, Routes, Route,Link} from 'react-router-dom';
+import { Add_Observation_Form } from '../add-observation-form/add-observation-form';
 
 export interface Trial_ObservationProps {
     className?: string;
@@ -25,7 +27,7 @@ export const Trial_Observation = ({ className }: Trial_ObservationProps) => {
         <FullNavBar />
         <div className="TrialOrg_Header">
             <h1>Observation</h1>
-            <button className="CreateTrialButton">Add Observation</button>
+           <Link to ="Add_Observation_Form"> <button className="CreateTrialButton">Add Observation</button> </Link>
         </div>
         <select>
         <option>Sort by</option>

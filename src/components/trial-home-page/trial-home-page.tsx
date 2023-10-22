@@ -3,7 +3,11 @@ import styles from './trial-home-page.module.scss';
 import { Header } from '../header/header';
 import { FullNavBar } from '../full-nav-bar/full-nav-bar';
 import { Trial_HomePage_Description } from '../trial-home-page-description/trial-home-page-description';
+import { BrowserRouter, Routes, Route,Link} from 'react-router-dom';
 import { Trial_HomePage_Overview } from '../trial-home-page-overview/trial-home-page-overview';
+
+
+
 
 export interface Trial_HomePageProps {
     className?: string;
@@ -33,7 +37,7 @@ export const Trial_HomePage = ({ className, id, status, name, participants }: Tr
                 status="Recruting/Completed/Suspended/..."
                 participants="150 [insert minimum and maximum number of participants]" />
             <div>
-                <button className="CreateTrialButton">Observation</button>
+                <Link to="/Observation" >    <button className="CreateTrialButton">Observation</button>  </Link>
                 <button className="CreateTrialButton">Submission </button>
                 <button className="CreateTrialButton">Trial record</button>
             </div>

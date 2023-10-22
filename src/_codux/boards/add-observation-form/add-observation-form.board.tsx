@@ -5,4 +5,8 @@ export default createBoard({
     name: 'Add_Observation_Form',
     Board: () => <Add_Observation_Form />,
     isSnippet: true,
+    environmentProps: {
+        canvasWidth: 1024,
+        canvasHeight: 640
+    }
 });

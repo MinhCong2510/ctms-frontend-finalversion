@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-
 import classNames from 'classnames';
 import styles from './home-page.module.scss';
 import { Header } from '../header/header';
@@ -9,8 +8,9 @@ import { FullNavBar } from '../full-nav-bar/full-nav-bar';
 import { Filter_Component } from '../filter-component/filter-component';
 import { Create_NewTrialOrg_button } from '../create-new-trial-org-button/create-new-trial-org-button';
 import { TrialOrg_BlockInfo } from '../trial-org-block-info/trial-org-block-info';
-import { Add_NewTrial_Form } from '../../../components/add-new-trial-form/add-new-trial-form';
-
+import { Add_NewTrial_Form } from '../add-new-trial-form/add-new-trial-form';
+import { Add_TrialOrg_Form } from '../add-trial-org-form/add-trial-org-form';
+import { BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 
 export interface HomePageProps {
     className?: string;
@@ -49,9 +49,9 @@ export const HomePage = ({ className }: HomePageProps) => {
     )
     
     return <div >
-        <Header />
-        <FullNavBar />
-        <div>
+         <Header />
+         <FullNavBar />
+         <div>
             <div className="TrialOrg_Header">
                 <h1>Trials</h1>
                 <Link to="Add_NewTrial_Form"><Create_NewTrial_Button /> </Link>
@@ -62,8 +62,7 @@ export const HomePage = ({ className }: HomePageProps) => {
             </div>
             <div className={classNames(styles.TrialsPageHeader, 'TrialOrg_Header')}>
             <h1>Trial Organization</h1>
-            <Create_NewTrialOrg_button /></div>
-            
+                <Link to="Add_TrialOrg_Form"><Create_NewTrialOrg_button /></div> </Link>
             <Filter_Component />
 
         <div className="Trial_HomePage">
@@ -74,6 +73,6 @@ export const HomePage = ({ className }: HomePageProps) => {
             <TrialOrg_BlockInfo name="GHI" id="789" contactNumber="02....." location="TAS"/></div>
             
             
-            </div>
-       </div>;
+        </div>
+     
 };

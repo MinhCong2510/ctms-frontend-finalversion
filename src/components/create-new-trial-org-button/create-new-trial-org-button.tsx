@@ -1,5 +1,7 @@
 import classNames from 'classnames';
 import styles from './create-new-trial-org-button.module.scss';
+import { BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+import { HomePage } from '../home-page/home-page';
 
 export interface Create_NewTrialOrg_buttonProps {
     className?: string;
@@ -11,6 +13,6 @@ export interface Create_NewTrialOrg_buttonProps {
  */
 export const Create_NewTrialOrg_button = ({ className }: Create_NewTrialOrg_buttonProps) => {
     return <div>
-        <button className="CreateTrialButton">Add New Trial Organization</button>
+       <Link to="Add_TrialOrg_Form"> <button className="CreateTrialButton">Add New Trial Organization</button> </Link>
     </div>;
 };

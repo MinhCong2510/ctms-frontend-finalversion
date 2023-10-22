@@ -3,6 +3,8 @@ import styles from './add-trial-org-form.module.scss';
 import { Input_Component } from '../input-component/input-component';
 import { Header } from '../header/header';
 import { FullNavBar } from '../full-nav-bar/full-nav-bar';
+import { BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+import { HomePage } from '../home-page/home-page';
 
 export interface Add_TrialOrg_FormProps {
     className?: string;
@@ -32,7 +34,7 @@ export const Add_TrialOrg_Form = ({ className }: Add_TrialOrg_FormProps) => {
                 <Input_Component context="Sponsor for " />
                 <Input_Component context="Location " />
             </div>
-            <button className="CreateTrialButton">Add New Trial Organization</button>
+             <Link to="HomePage"> <button className="CreateTrialButton">Add New Trial Organization</button> </Link>
 
         </div>
 
