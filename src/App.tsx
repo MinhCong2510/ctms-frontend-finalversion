@@ -15,17 +15,14 @@ import { Add_TrialOrg_Form } from './components/add-trial-org-form/add-trial-org
 
 
 function App() {
-    const [count, setCount] = useState(0);
-
     return (
     <BrowserRouter>
         <Routes>
             <Route index element={<Login />}></Route>
             <Route path='/home' element={<HomePage />}></Route>
-            <Route path='/Add_NewTrial_Form' element={<Add_NewTrial_Form/>}></Route>
-            <Route path="/Trial_Observation" element={<Trial_Observation/>}></Route>
-            <Route path="/Add_TrialOrg_Form" element={<Add_TrialOrg_Form/>}></Route>
-            <Route path="Observation" element= {</>}>
+            <Route path='/addtrial' element={<Add_NewTrial_Form/>}></Route>
+            <Route path="/observations" element={<Trial_Observation/>}></Route>
+            <Route path="/addorganisation" element={<Add_TrialOrg_Form/>}></Route>
         </Routes>
     </BrowserRouter>
     );

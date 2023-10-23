@@ -13,6 +13,6 @@ export interface Create_NewTrialOrg_buttonProps {
  */
 export const Create_NewTrialOrg_button = ({ className }: Create_NewTrialOrg_buttonProps) => {
     return <div>
-       <Link to="/Add_TrialOrg_Form"> <button className="CreateTrialButton">Add New Trial Organization</button> </Link>
+       <button className="CreateTrialButton">Add New Trial Organization</button>
     </div>;
 };
