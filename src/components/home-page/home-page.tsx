@@ -49,30 +49,32 @@ export const HomePage = ({ className }: HomePageProps) => {
     )
     
     return <div >
-         <Header />
-         <FullNavBar />
-         <div>
+        <Header />
+        <FullNavBar />
+        <div>
             <div className="TrialOrg_Header">
                 <h1>Trials</h1>
-                <Link to="Add_NewTrial_Form"><Create_NewTrial_Button /> </Link>
+                <Link to="/addtrial"><Create_NewTrial_Button /> </Link>
             </div>
             <Filter_Component />
+
             <div className="Trial_HomePage">
                 {listTrials}
             </div>
+
             <div className={classNames(styles.TrialsPageHeader, 'TrialOrg_Header')}>
-            <h1>Trial Organization</h1>
-                <Link to="Add_TrialOrg_Form"><Create_NewTrialOrg_button /></div> </Link>
+                <h1>Trial Organization</h1>
+                <Link to="/addorganisation"> 
+                <Create_NewTrialOrg_button />
+                </Link>
+                </div>
             <Filter_Component />
 
-        <div className="Trial_HomePage">
-
-
-            <TrialOrg_BlockInfo name="ABC" id="123" contactNumber="02......" location="NSW" />
-            <TrialOrg_BlockInfo name="DEF" id="456" contactNumber="02....."  location="VIC"/>
-            <TrialOrg_BlockInfo name="GHI" id="789" contactNumber="02....." location="TAS"/></div>
-            
-            
+            <div className="Trial_HomePage">]
+                <TrialOrg_BlockInfo name="ABC" id="123" contactNumber="02......" location="NSW" />
+                <TrialOrg_BlockInfo name="DEF" id="456" contactNumber="02......"  location="VIC"/>
+                <TrialOrg_BlockInfo name="GHI" id="789" contactNumber="02......"  location="TAS"/>
+            </div>
         </div>
-     
+    </div>
 };
