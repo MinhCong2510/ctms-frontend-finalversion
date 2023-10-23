@@ -29,7 +29,7 @@ export const Add_NewTrial_Form = ({ className }: Add_NewTrial_FormProps) => {
                 <Input_Component context="Create on" />
 
             </div>
-           <Link to="HomePage"> <button className="CreateTrialButton">Create New Trial</button> </Link>
+           <Link to="/home"> <button className="CreateTrialButton">Create New Trial</button> </Link>
         </div>
 
     </div>;
