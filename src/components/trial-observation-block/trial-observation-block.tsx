@@ -6,7 +6,7 @@ export interface Trial_Observation_BlockProps {
     id?: string;
     overview?: string;
     patientsNum?: string;
-    status?:string;
+    status?: string;
     staff?: string
 
 

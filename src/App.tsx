@@ -25,6 +25,7 @@ function App() {
             <Route path='/Add_NewTrial_Form' element={<Add_NewTrial_Form/>}></Route>
             <Route path="/Trial_Observation" element={<Trial_Observation/>}></Route>
             <Route path="/Add_TrialOrg_Form" element={<Add_TrialOrg_Form/>}></Route>
+            <Route path="Observation" element= {</>}>
         </Routes>
     </BrowserRouter>
     );

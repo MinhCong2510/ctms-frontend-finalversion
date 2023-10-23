@@ -3,6 +3,10 @@ import styles from './add-observation-form.module.scss';
 import { Input_Component } from '../input-component/input-component';
 import { FullNavBar } from '../full-nav-bar/full-nav-bar';
 import { Header } from '../header/header';
+import { HomePage } from '../home-page/home-page';
+import { BrowserRouter, Routes, Route,Link} from 'react-router-dom';
+
+
 export interface Add_Observation_FormProps {
     className?: string;
 }
@@ -25,7 +29,7 @@ export const Add_Observation_Form = ({ className }: Add_Observation_FormProps) =
                 <Input_Component context="Involved Patients" />
 
             </div>
-            <button className="CreateTrialButton">Create Observation</button>
+            <Link to="/home"><button className="CreateTrialButton">Create Observation</button> </Link>
         </div>
 
     </div>;

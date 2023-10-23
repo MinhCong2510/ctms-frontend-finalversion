@@ -34,7 +34,7 @@ export const Add_TrialOrg_Form = ({ className }: Add_TrialOrg_FormProps) => {
                 <Input_Component context="Sponsor for " />
                 <Input_Component context="Location " />
             </div>
-             <Link to="HomePage"> <button className="CreateTrialButton">Add New Trial Organization</button> </Link>
+             <Link to="/HomePage"> <button className="CreateTrialButton">Add New Trial Organization</button> </Link>
 
         </div>
 

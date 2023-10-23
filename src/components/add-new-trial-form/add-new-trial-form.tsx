@@ -4,6 +4,7 @@ import { Input_Component } from '../input-component/input-component';
 import { FullNavBar } from '../full-nav-bar/full-nav-bar';
 import { Header } from '../header/header';
 import { BrowserRouter, Routes, Route,Link} from 'react-router-dom';
+import { HomePage } from '../home-page/home-page';
 
 export interface Add_NewTrial_FormProps {
     className?: string;
@@ -29,7 +30,7 @@ export const Add_NewTrial_Form = ({ className }: Add_NewTrial_FormProps) => {
                 <Input_Component context="Create on" />
 
             </div>
-           <Link to="HomePage"> <button className="CreateTrialButton">Create New Trial</button> </Link>
+           <Link to="/HomePage"> <button className="CreateTrialButton">Create New Trial</button> </Link>
         </div>
 
     </div>;
