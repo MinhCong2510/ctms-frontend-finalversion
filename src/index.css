@@ -216,3 +216,11 @@ button:focus-visible {
     justify-items: center;
     color: #FF0000;
 }
+
+.ObservationSum_Report {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    justify-items: start;
+    gap: 10px;
+}

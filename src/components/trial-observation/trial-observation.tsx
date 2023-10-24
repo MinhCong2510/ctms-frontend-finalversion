@@ -27,7 +27,7 @@ export const Trial_Observation = ({ className }: Trial_ObservationProps) => {
         <FullNavBar />
         <div className="TrialOrg_Header">
             <h1>Observation</h1>
-           <Link to ="Add_Observation_Form"> <button className="CreateTrialButton">Add Observation</button> </Link>
+           <Link to ="/addobservations"> <button className="CreateTrialButton">Add Observation</button> </Link>
         </div>
         <select>
         <option>Sort by</option>

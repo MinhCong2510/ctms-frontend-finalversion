@@ -37,9 +37,10 @@ export const Trial_HomePage = ({ className, id, status, name, participants }: Tr
                 status="Recruting/Completed/Suspended/..."
                 participants="150 [insert minimum and maximum number of participants]" />
             <div>
-                <Link to="/Trial_Observation" >    <button className="CreateTrialButton">Observation</button>  </Link>
+                <Link to="/observations">    <button className="CreateTrialButton">Observation</button>  </Link>
                 <button className="CreateTrialButton">Submission </button>
                 <button className="CreateTrialButton">Trial record</button>
+                <Link to="/GenerateReport"> <button className="CreateTrialButton">Generate report</button> </Link>
             </div>
 
             <Trial_HomePage_Description />

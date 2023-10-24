@@ -1,6 +1,10 @@
 import classNames from 'classnames';
 import styles from './full-nav-bar.module.scss';
 import { NavComponent } from '../nav-component/nav-component';
+import { BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+import { HomePage } from '../home-page/home-page';
+
+
 
 export interface FullNavBarProps {
     className?: string;
@@ -13,7 +17,7 @@ export interface FullNavBarProps {
  */
 export const FullNavBar = ({ className }: FullNavBarProps) => {
     return <div className="FullNavBar">
-        <NavComponent context="Home" />
+        <Link to="/home"> <NavComponent context="Home" /> </Link>
         <NavComponent context="Trials" />
         <NavComponent context="Trial Organizations" />
        
