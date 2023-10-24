@@ -19,12 +19,12 @@
 
 a {
     font-weight: 500;
-    color: #646cff;
+    color: #ffffff;
     text-decoration: inherit;
 }
 
 a:hover {
-    color: #535bf2;
+    color: #999999;
 }
 
 body {
@@ -49,11 +49,12 @@ button {
     background-color: #1a1a1a;
     cursor: pointer;
     transition: border-color 0.25s;
+    margin:10px;
 }
 
-button:hover {
+/* button:hover {
     border-color: #646cff;
-}
+} */
 
 button:focus,
 button:focus-visible {
@@ -66,9 +67,9 @@ button:focus-visible {
         background-color: #ffffff;
     }
 
-    a:hover {
+    /* a:hover {
         color: #747bff;
-    }
+    } */
 
     button {
         background-color: #f9f9f9;
@@ -125,8 +126,8 @@ button:focus-visible {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    background-color: #FF0000;
-    color: #FFFFFF;
+    background-color: #ff0000;
+    color:#ffffff;
 }
 
 .Filter_Bar {
@@ -215,6 +216,15 @@ button:focus-visible {
     align-items: center;
     justify-items: center;
     color: #FF0000;
+    vertical-align: middle;
+    margin:auto;
+    background-image: url("https://media.licdn.com/dms/image/C4E1BAQFsjW-NueP5mA/company-background_10000/0/1639615469636?e=1698444000&v=beta&t=4sQjw-mgznTRiFeK8QoQ0Y70P9YlVGyBqJ0x7R_76R0");
+    background-size:110% ;
+    background-position: right;
+    
+}
+button#login {
+margin-top: -50px;
 }
 
 .ObservationSum_Report {
@@ -223,4 +233,14 @@ button:focus-visible {
     align-content: space-around;
     justify-items: start;
     gap: 10px;
+}
+.popUpContainer{
+    width:50%;
+    position:fixed;
+    top:40%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    display:flex;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.15);
 }

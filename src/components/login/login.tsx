@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import styles from './login.module.scss';
+import './login.module.scss';
 import { Link, Navigate } from 'react-router-dom';
 
 export interface LoginProps {
@@ -12,9 +12,9 @@ export interface LoginProps {
  */
 export const Login = ({ className }: LoginProps) => {
     return <div className="Login">
-        <h1>Welcome to eHealth Clinical Trial</h1>
+        <h1 style={{color:"#ffffff"}}>Welcome to eHealth Clinical Trial</h1>
 
-        <form><label>Username/ Email:</label>
+        <form style={{color:"white", fontSize:"20px"}}><label>Username/ Email:</label>
         <br />
         <input type="text" />
         <br />
@@ -23,15 +23,9 @@ export const Login = ({ className }: LoginProps) => {
         <input type="password" />
         
         <br /><br />
-        <Link to='/home'>Login</Link>
+        <button className="CreateTrialButton" id="login"><Link to='/home' >Login</Link></button>
 
-        
         </form>
-
-
-
-
-
-
+        
     </div>;
 };

@@ -14,6 +14,7 @@ import { Trial_Observation } from './components/trial-observation/trial-observat
 import { Add_TrialOrg_Form } from './components/add-trial-org-form/add-trial-org-form';
 import { Add_Observation_Form } from './components/add-observation-form/add-observation-form';
 import { Generated_ClinicalReport } from './components/generated-clinical-report/generated-clinical-report';
+import { TrialOrg_FullPage } from './components/trial-org-full-page/trial-org-full-page';
 
 function App() {
     return (
@@ -26,6 +27,8 @@ function App() {
             <Route path="/addorganisation" element={<Add_TrialOrg_Form/>}></Route>
             <Route path="/addobservations" element={<Add_Observation_Form/>}></Route>
             <Route path="/GenerateReport" element={<Generated_ClinicalReport/>}></Route>
+            <Route path="/trial" element={<Trial_HomePage/>}></Route>
+            <Route path="/organisation" element={<TrialOrg_FullPage/>}></Route>
         </Routes>
     </BrowserRouter>
     );

@@ -3,7 +3,7 @@ import styles from './add-new-trial-form.module.scss';
 import { Input_Component } from '../input-component/input-component';
 import { FullNavBar } from '../full-nav-bar/full-nav-bar';
 import { Header } from '../header/header';
-import { BrowserRouter, Routes, Route,Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 export interface Add_NewTrial_FormProps {
     className?: string;
