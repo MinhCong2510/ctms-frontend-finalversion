@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { useState } from 'react';
 import styles from './trial-home-page.module.scss';
 import { Header } from '../header/header';
 import { FullNavBar } from '../full-nav-bar/full-nav-bar';
@@ -6,6 +7,8 @@ import { Trial_HomePage_Description } from '../trial-home-page-description/trial
 import { BrowserRouter, Routes, Route,Link} from 'react-router-dom';
 import { Trial_HomePage_Overview } from '../trial-home-page-overview/trial-home-page-overview';
 import { Trial_Observation } from '../trial-observation/trial-observation';
+import { PopUp } from '../pop-up/pop-up';
+import PopTrigger from '../pop-trigger/pop-trigger';
 
 
 
@@ -16,17 +19,15 @@ export interface Trial_HomePageProps {
     name?: string;
     participants?: string;
 }
-
 /**
  * This component was created using Codux's Default new component template.
  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522
  */
 
-
-
-
 export const Trial_HomePage = ({ className, id, status, name, participants }: Trial_HomePageProps) => {
-    return <div>
+    
+    return (
+    <div>
         <Header />
         <div>
             <FullNavBar />
@@ -42,10 +43,11 @@ export const Trial_HomePage = ({ className, id, status, name, participants }: Tr
                 <button className="CreateTrialButton">Trial record</button>
                 <Link to="/GenerateReport"> <button className="CreateTrialButton">Generate report</button> </Link>
             </div>
-
             <Trial_HomePage_Description />
         </div>
+        <PopTrigger />
         </div>
 
-    </div>;
+    </div>
+    )
 };

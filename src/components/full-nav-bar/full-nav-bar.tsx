@@ -18,8 +18,8 @@ export interface FullNavBarProps {
 export const FullNavBar = ({ className }: FullNavBarProps) => {
     return <div className="FullNavBar">
         <Link to="/home"> <NavComponent context="Home" /> </Link>
-        <NavComponent context="Trials" />
-        <NavComponent context="Trial Organizations" />
+        <Link to ="/trial"><NavComponent context="Trials" /></Link>
+        <Link to ="/organisation"> <NavComponent context="Trial Organizations" /></Link>
        
     </div>;
 };

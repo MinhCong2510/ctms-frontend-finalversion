@@ -11,6 +11,7 @@ import { TrialOrg_BlockInfo } from '../trial-org-block-info/trial-org-block-info
 import { Add_NewTrial_Form } from '../add-new-trial-form/add-new-trial-form';
 import { Add_TrialOrg_Form } from '../add-trial-org-form/add-trial-org-form';
 import { BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+import { EndTrial_button } from '../end-trial-button/end-trial-button';
 
 export interface HomePageProps {
     className?: string;
@@ -70,7 +71,7 @@ export const HomePage = ({ className }: HomePageProps) => {
                 </div>
             <Filter_Component />
 
-            <div className="Trial_HomePage">]
+            <div className="Trial_HomePage">
                 <TrialOrg_BlockInfo name="ABC" id="123" contactNumber="02......" location="NSW" />
                 <TrialOrg_BlockInfo name="DEF" id="456" contactNumber="02......"  location="VIC"/>
                 <TrialOrg_BlockInfo name="GHI" id="789" contactNumber="02......"  location="TAS"/>
