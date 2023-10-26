@@ -1,12 +1,16 @@
 import classNames from 'classnames';
 import styles from './trial-block-info.module.scss';
+import { Link } from 'react-router-dom';
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 export interface Trial_BlockInfoProps {
     className?: string;
     id?: string;
+    name?: string;
     context?: string;
+    treatment?: string;
+    participants?:string;
 }
 
 /**

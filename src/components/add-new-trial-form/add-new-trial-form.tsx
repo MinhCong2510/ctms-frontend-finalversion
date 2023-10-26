@@ -16,17 +16,24 @@ export interface Add_NewTrial_FormProps {
 
 
 export const Add_NewTrial_Form = ({ className }: Add_NewTrial_FormProps) => {
+    const dateFormat= new Intl.DateTimeFormat("en", {
+        timeStyle: "short",
+        dateStyle: "short",
+      });
+    const date=dateFormat.format(Date.now());
     return <div>
         <Header />
 
         <FullNavBar />
-        <div className="Add_Trial">
+        <div className="Add_Trial" style={{color:"#034370"}}>
             <h3>Add New Trial</h3>
             <div className="Add_Trial_Form">
                 <Input_Component context="Name " />
                 <Input_Component context="Description" />
-                <Input_Component context="Sponsor by" />
-                <Input_Component context="Create on" />
+                <Input_Component context="Status" />
+                <Input_Component context="Treatment used" />
+                <Input_Component context="Sponsor organisation" />
+                <div className="TrialOrg_Header" >Created on:  {date}</div>
 
             </div>
            <Link to="/home"> <button className="CreateTrialButton">Create New Trial</button> </Link>

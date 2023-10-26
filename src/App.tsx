@@ -1,9 +1,5 @@
 import { useState } from 'react';
 import classNames from 'classnames';
-import { ReactComponent as ReactLogo } from './assets/react.svg';
-import { ReactComponent as ViteLogo } from './assets/vite.svg';
-import { ReactComponent as TypescriptLogo } from './assets/typescript.svg';
-import { ReactComponent as ScssLogo } from './assets/scss.svg';
 import styles from './App.module.scss';
 import { HomePage } from './components/home-page/home-page';
 import { BrowserRouter, Routes, Route, useParams} from 'react-router-dom';
@@ -15,6 +11,10 @@ import { Add_TrialOrg_Form } from './components/add-trial-org-form/add-trial-org
 import { Add_Observation_Form } from './components/add-observation-form/add-observation-form';
 import { Generated_ClinicalReport } from './components/generated-clinical-report/generated-clinical-report';
 import { TrialOrg_FullPage } from './components/trial-org-full-page/trial-org-full-page';
+import { Patient_Home } from './components/patient-home/patient-home';
+import { CreatePatient_Page } from './components/create-patient-page/create-patient-page';
+import { Patient } from './components/patient/patient';
+import { Trial } from './components/trial/trial';
 
 function App() {
 
@@ -22,16 +22,22 @@ function App() {
     <BrowserRouter>
         <Routes>
             <Route index element={<Login />}></Route>
+            <Route path='/login' element={<Login/>}></Route>
             <Route path='/home' element={<HomePage />}></Route>
+            <Route path="/trialHome" element={<Trial_HomePage/>}></Route>
             <Route path='/addtrial' element={<Add_NewTrial_Form/>}></Route>
+            <Route path='/trialInfo' element={<Trial/>}></Route>
             <Route path="/observations" element={<Trial_Observation/>}></Route>
-            <Route path="/addorganisation" element={<Add_TrialOrg_Form/>}></Route>
             <Route path="/addobservations" element={<Add_Observation_Form/>}></Route>
             <Route path="/GenerateReport" element={<Generated_ClinicalReport/>}></Route>
             <Route path="/trials">
                 <Route path=':trialId/' element={<Trial_HomePage/>}></Route>
             </Route>
             <Route path="/organisation" element={<TrialOrg_FullPage/>}></Route>
+            <Route path="/addorganisation" element={<Add_TrialOrg_Form/>}></Route>
+            <Route path="/patient" element={<Patient_Home/>}></Route>
+            <Route path="/addPatient" element={<CreatePatient_Page/>}></Route>
+            <Route path="/patientInfo" element={<Patient/>}></Route>
         </Routes>
     </BrowserRouter>
     );

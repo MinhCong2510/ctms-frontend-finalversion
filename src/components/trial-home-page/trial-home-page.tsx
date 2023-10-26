@@ -3,6 +3,10 @@ import { useEffect, useState } from 'react';
 import styles from './trial-home-page.module.scss';
 import { Header } from '../header/header';
 import { FullNavBar } from '../full-nav-bar/full-nav-bar';
+import { Create_Patient } from '../create-patient/create-patient';
+import { Create_NewTrial_Button } from '../create-new-trial-button/create-new-trial-button';
+import { Trial_BlockInfo } from '../trial-block-info/trial-block-info';
+import { Patiet_blockinfo } from '../patiet-blockinfo/patiet-blockinfo';
 import { Trial_HomePage_Description } from '../trial-home-page-description/trial-home-page-description';
 import { BrowserRouter, Routes, Route,Link, useParams} from 'react-router-dom';
 import { Trial_HomePage_Overview } from '../trial-home-page-overview/trial-home-page-overview';
@@ -13,10 +17,6 @@ import PopTrigger from '../pop-trigger/pop-trigger';
 
 export interface Trial_HomePageProps {
     className?: string;
-    id?: string;
-    status?: string;
-    name?: string;
-    participants?: string;
 }
 /**
  * This component was created using Codux's Default new component template.
@@ -77,8 +77,6 @@ export const Trial_HomePage = ({ className, id, status, name, participants }: Tr
     console.log(patientCount)
     
     return (
-    <div>
-        <Header />
         <div>
             <FullNavBar />
              <div className="Trial_HomePage_ContentBlock">
@@ -109,7 +107,4 @@ export const Trial_HomePage = ({ className, id, status, name, participants }: Tr
         </div>
         <PopTrigger />
         </div>
-
-    </div>
-    )
 };
