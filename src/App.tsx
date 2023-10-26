@@ -2,7 +2,7 @@ import { useState } from 'react';
 import classNames from 'classnames';
 import styles from './App.module.scss';
 import { HomePage } from './components/home-page/home-page';
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useParams} from 'react-router-dom';
 import { Login } from './components/login/login';
 import { Add_NewTrial_Form } from './components/add-new-trial-form/add-new-trial-form';
 import { Trial_HomePage } from './components/trial-home-page/trial-home-page';
@@ -17,6 +17,7 @@ import { Patient } from './components/patient/patient';
 import { Trial } from './components/trial/trial';
 
 function App() {
+
     return (
     <BrowserRouter>
         <Routes>
@@ -24,12 +25,14 @@ function App() {
             <Route path='/login' element={<Login/>}></Route>
             <Route path='/home' element={<HomePage />}></Route>
             <Route path="/trialHome" element={<Trial_HomePage/>}></Route>
-            <Route path="/trial" element={<Trial/>}></Route>
             <Route path='/addtrial' element={<Add_NewTrial_Form/>}></Route>
             <Route path='/trialInfo' element={<Trial/>}></Route>
             <Route path="/observations" element={<Trial_Observation/>}></Route>
             <Route path="/addobservations" element={<Add_Observation_Form/>}></Route>
             <Route path="/GenerateReport" element={<Generated_ClinicalReport/>}></Route>
+            <Route path="/trials">
+                <Route path=':trialId/' element={<Trial_HomePage/>}></Route>
+            </Route>
             <Route path="/organisation" element={<TrialOrg_FullPage/>}></Route>
             <Route path="/addorganisation" element={<Add_TrialOrg_Form/>}></Route>
             <Route path="/patient" element={<Patient_Home/>}></Route>
