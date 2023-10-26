@@ -2,6 +2,8 @@ import classNames from 'classnames';
 import styles from './trial-block-info.module.scss';
 import { Link } from 'react-router-dom';
 import { Delete_Button } from '../delete-button/delete-button';
+import { Link, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 export interface Trial_BlockInfoProps {
     className?: string;
@@ -16,9 +18,12 @@ export interface Trial_BlockInfoProps {
  * This component was created using Codux's Default new component template.
  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522
  */
+
 export const Trial_BlockInfo = ({ className, id, name, context, treatment, participants}: Trial_BlockInfoProps) => {
+    let trialLink = "/trials/" + id;
+    
     return (
-    <Link to="/trialInfo">
+    <Link to={trialLink}>
     <div className="TrialOrg_BlockInfo">
         <h4>
         Trial number:{id} {/* number */}
@@ -33,8 +38,4 @@ export const Trial_BlockInfo = ({ className, id, name, context, treatment, parti
         {/* Recruiting/Completed/Terminate/Suspend */}
         <div style={{textAlign:"right"}}><Delete_Button/></div>
         </h4>
-
-    </div>
-    </Link>
-    )
-};
+      )};
