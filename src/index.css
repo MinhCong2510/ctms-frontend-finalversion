@@ -5,6 +5,8 @@
     color-scheme: light dark;
     color: rgba(255, 255, 255, 0.87);
     background-color: #242424;
+    /* display: flex;
+    justify-content: center; */
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -217,12 +219,9 @@ button:focus-visible {
     justify-items: center;
     color: #FF0000;
     vertical-align: middle;
-    margin:auto;
-    background-image: url("https://media.licdn.com/dms/image/C4E1BAQFsjW-NueP5mA/company-background_10000/0/1639615469636?e=1698444000&v=beta&t=4sQjw-mgznTRiFeK8QoQ0Y70P9YlVGyBqJ0x7R_76R0");
-    background-size:110% ;
-    background-position: right;
-    
+    background-color: gray;
 }
+
 button#login {
 margin-top: -50px;
 }
