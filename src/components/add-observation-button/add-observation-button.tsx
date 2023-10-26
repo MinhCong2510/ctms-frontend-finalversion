@@ -12,6 +12,6 @@ export interface AddObservation_ButtonProps {
  */
 export const AddObservation_Button = ({ className }: AddObservation_ButtonProps) => {
         return <div>
-            <Link to="/addobservation"><button className="CreateTrialButton">Create New Observation</button></Link>
+            <Link to="/addobservations"><button className="CreateTrialButton">Create New Observation</button></Link>
         </div>
     };

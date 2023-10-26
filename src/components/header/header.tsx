@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import styles from './header.module.scss';
+import { Link } from 'react-router-dom';
 
 
 export interface HeaderProps {
@@ -12,7 +13,7 @@ export interface HeaderProps {
  */
 
 export const Header = ({ className }: HeaderProps) => {
-    return <div className="Header">
+    return <div className="Header" style={{color:"#034370"}}>
         <div>
             <img src="https://d1.awsstatic.com/apac/customer-references-logos-(%401x---%402x)/eHealthNSW_Logo%402x.7bf59f1d50bacc6c378cb4f49be66ac88bc1201a.png"
                 style={{
@@ -38,13 +39,13 @@ export const Header = ({ className }: HeaderProps) => {
             />
             Hello, User
 
-            <img src="https://cdn-icons-png.flaticon.com/512/56/56805.png" alt=""
+            <Link to="/login"><img src="https://cdn-icons-png.flaticon.com/512/56/56805.png" alt=""
                 style={{
                     height: 35,
                     width: 35,
                     objectFit: 'cover',
                     marginLeft: 10,
-                }} /></div>
+                }} /></Link></div>
         
     </div>;
 };

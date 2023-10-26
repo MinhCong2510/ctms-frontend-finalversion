@@ -3,7 +3,6 @@ import React from "react";
 import { GenerateReport_button } from "../generate-report-button/generate-report-button";
 import { Link } from "react-router-dom";
 
-
 const PopUp=({open, onClose}) =>{
     if (!open) return null
         let date= new Date();
