@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import styles from './trial-block-info.module.scss';
 import { Link } from 'react-router-dom';
+import { Delete_Button } from '../delete-button/delete-button';
 
 export interface Trial_BlockInfoProps {
     className?: string;
@@ -30,6 +31,7 @@ export const Trial_BlockInfo = ({ className, id, name, context, treatment, parti
         <br/>
         Participation: {participants}
         {/* Recruiting/Completed/Terminate/Suspend */}
+        <div style={{textAlign:"right"}}><Delete_Button/></div>
         </h4>
 
     </div>

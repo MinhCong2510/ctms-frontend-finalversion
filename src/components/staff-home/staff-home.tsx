@@ -3,7 +3,6 @@ import styles from './staff-home.module.scss';
 import { Header } from '../header/header';
 import { FullNavBar } from '../full-nav-bar/full-nav-bar';
 import { Staff_BlockInfo } from '../staff-block-info/staff-block-info';
-import { Delete_Button } from '../delete-button/delete-button';
 
 export interface StaffHomeProps {
     className?: string;

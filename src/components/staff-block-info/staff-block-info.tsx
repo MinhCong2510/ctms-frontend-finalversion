@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import styles from './staff-block-info.module.scss';
+import { Delete_Button } from '../delete-button/delete-button';
 
 export interface Staff_BlockInfoProps {
     className?: string;
@@ -26,8 +27,8 @@ export const Staff_BlockInfo = ({ className, id, firstName, lastName ,trialInvol
             Trial Involved: {trialInvolved}
             <br/>
             {/* Recruiting/Completed/Terminate/Suspend */}
+            <div style={{textAlign:"right"}}><Delete_Button/></div>
             </h4>
-    
         </div>
         )
     };
