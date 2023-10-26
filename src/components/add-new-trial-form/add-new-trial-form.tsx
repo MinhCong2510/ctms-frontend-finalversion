@@ -25,8 +25,10 @@ export const Add_NewTrial_Form = ({ className }: Add_NewTrial_FormProps) => {
             <div className="Add_Trial_Form">
                 <Input_Component context="Name " />
                 <Input_Component context="Description" />
-                <Input_Component context="Sponsor by" />
-                <Input_Component context="Create on" />
+                <Input_Component context="Status" />
+                <Input_Component context="Created on" />
+                <Input_Component context="Treatment used" />
+                <Input_Component context="Sponsor organisation" />
 
             </div>
            <Link to="/home"> <button className="CreateTrialButton">Create New Trial</button> </Link>

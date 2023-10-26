@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import styles from './trial-home-page-description.module.scss';
+import { Observation_SummaryReport } from '../observation-summary-report/observation-summary-report';
 
 export interface Trial_HomePage_DescriptionProps {
     className?: string;
@@ -12,19 +13,25 @@ export interface Trial_HomePage_DescriptionProps {
 export const Trial_HomePage_Description = ({ className }: Trial_HomePage_DescriptionProps) => {
     return <div className="Trial_HomePage_Description">
 
-        <h3>Trial Overview</h3>
-        <p>[Insert trial full description included brief summary and detailed description]</p>
-        <h3>Trial Plan</h3>
-        <p>[Insert trial plans include trial design and measurement]</p>
-        <h3>Trial Measuring</h3>
-        <p>[Insert trial measurement include trial outcome and timeframe]</p>
-        <h3>Participants Criteria</h3>
-        <p>[Insert participants eligible criteria and population]</p>
-        <h3>Trial Organization - Collaborators</h3>
-        <p>[Insert trial staffs and organizations involved within this trial.]</p>
-        <h3>Contact - Location</h3>
-        <p>[Insert the contact details, locations of the trial that conducting the study]</p>
-
-
+                    <p>
+                     <h3>Trial Name: </h3>
+                     [Trial name props] 
+                    <br/>
+                    <h3>Description: </h3>
+                    [Description props]
+                    <br/>
+                    <h3>Status: </h3>
+                    [status props]
+                    <br/>
+                    <h3>Start Date: </h3>
+                    [startDate props]
+                    <br/>
+                    <h3>Treatment used: </h3> 
+                    [treatment props]
+                    <br/>
+                    <h3>Sponsor Organisation: </h3>
+                    [organisation props]
+                    
+                </p>
     </div>;
 };

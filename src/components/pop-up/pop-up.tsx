@@ -11,11 +11,11 @@ const PopUp=({open, onClose}) =>{
     return (
         <>
     <div className="popUpContainer">
-        <div style={{padding:"25px",  transform:" translate(20%,-0%)"}}>
+        <div>
         <img src="https://aci.health.nsw.gov.au/__data/assets/image/0003/219369/aci-logo.png/"/>
-        <text style={{position:"fixed",top:"8px",right:"-80px",color:"#ff0000"}} onClick={onClose}>x</text>
+        <text style={{position:"fixed",top:"8px",right:"8px",color:"#ff0000"}} onClick={onClose}>x</text>
         <br/>
-        <h2 style={{textAlign:"left"}}>Trial Ended on {dateS} <br/> Status: Completed<br/> Duration: [Duration]</h2>
+        <h2 style={{textAlign:"left", paddingLeft: "20px"}}>Trial Ended on {dateS} <br/> Status: Completed<br/> Duration: [Duration]</h2>
         {/* Please replace [Duration] with actual duration.Maybe date() less dateCreated? */}
         <div><Link style={{textAlign:"center"}}to="/GenerateReport"><GenerateReport_button/></Link>
         </div>

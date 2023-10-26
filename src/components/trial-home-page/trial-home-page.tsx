@@ -3,51 +3,72 @@ import { useState } from 'react';
 import styles from './trial-home-page.module.scss';
 import { Header } from '../header/header';
 import { FullNavBar } from '../full-nav-bar/full-nav-bar';
-import { Trial_HomePage_Description } from '../trial-home-page-description/trial-home-page-description';
-import { BrowserRouter, Routes, Route,Link} from 'react-router-dom';
-import { Trial_HomePage_Overview } from '../trial-home-page-overview/trial-home-page-overview';
-import { Trial_Observation } from '../trial-observation/trial-observation';
-import { PopUp } from '../pop-up/pop-up';
-import PopTrigger from '../pop-trigger/pop-trigger';
+import { Create_Patient } from '../create-patient/create-patient';
+import { Create_NewTrial_Button } from '../create-new-trial-button/create-new-trial-button';
+import { Trial_BlockInfo } from '../trial-block-info/trial-block-info';
+import { Patiet_blockinfo } from '../patiet-blockinfo/patiet-blockinfo';
+
 
 
 
 export interface Trial_HomePageProps {
     className?: string;
-    id?: string;
-    status?: string;
-    name?: string;
-    participants?: string;
 }
 /**
  * This component was created using Codux's Default new component template.
  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522
  */
 
-export const Trial_HomePage = ({ className, id, status, name, participants }: Trial_HomePageProps) => {
+export const Trial_HomePage = ({ className }: Trial_HomePageProps) => {
     
     return (
-    <div>
-        <Header />
         <div>
-            <FullNavBar />
-             <div className="Trial_HomePage_ContentBlock">
-                <Trial_HomePage_Overview
-                name="ABC"
-                id="123"
-                status="Recruting/Completed/Suspended/..."
-                participants="150 [insert minimum and maximum number of participants]" />
-            <div>
-                <Link to="/observations">    <button className="CreateTrialButton">Observation</button>  </Link>
-                <button className="CreateTrialButton">Submission </button>
-                <button className="CreateTrialButton">Trial record</button>
-                <Link to="/GenerateReport"> <button className="CreateTrialButton">Generate report</button> </Link>
+            <Header />
+            
+                <FullNavBar />
+                <div className={classNames(styles.TrialsPageHeader, 'TrialOrg_Header', "padding")}>
+                <h1>Trials</h1>
+                <Create_NewTrial_Button/></div>
+                
+                 <div className="Trial_HomePage">
+                    <Trial_BlockInfo
+                    id="123"
+                    name="[props.treatmentName]"
+                    context="[props.status]"
+                    treatment="[props.treatment]" 
+                    participants="[props.participant]"
+                    />
+                    <Trial_BlockInfo
+                    id="123"
+                    name="[props.treatmentName]"
+                    context="[props.status]"
+                    treatment="[props.treatment]" 
+                    participants="[props.participant]"
+                    />
+                    <Trial_BlockInfo
+                    id="123"
+                    name="[props.treatmentName]"
+                    context="[props.status]"
+                    treatment="[props.treatment]" 
+                    participants="[props.participant]"
+                    />
+                    <Trial_BlockInfo
+                    id="123"
+                    name="[props.treatmentName]"
+                    context="[props.status]"
+                    treatment="[props.treatment]" 
+                    participants="[props.participant]"
+                    />
+                    <Trial_BlockInfo
+                    id="123"
+                    name="[props.treatmentName]"
+                    context="[props.status]"
+                    treatment="[props.treatment]" 
+                    participants="[props.participant]"
+                    />
             </div>
-            <Trial_HomePage_Description />
-        </div>
-        <PopTrigger />
-        </div>
+            </div>
+    
+        )
 
-    </div>
-    )
 };
