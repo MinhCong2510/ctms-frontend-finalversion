@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import styles from './patiet-blockinfo.module.scss';
 import { Link } from 'react-router-dom';
+import { Delete_Button } from '../delete-button/delete-button';
 
 export interface Patiet_blockinfoProps {
     className?: string;
@@ -33,6 +34,7 @@ export const Patiet_blockinfo = ({ className , id, firstName, lastName, gender, 
         Date of Birth: {dateOfBirth}
         <br/>
         Apart of: {apartOf}
+        <div style={{textAlign:"right"}}><Delete_Button/></div>
         </h4>
 
     </div>
