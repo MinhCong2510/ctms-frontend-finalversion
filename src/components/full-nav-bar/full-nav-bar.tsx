@@ -18,9 +18,9 @@ export interface FullNavBarProps {
 export const FullNavBar = ({ className }: FullNavBarProps) => {
     return <div className="FullNavBar">
         <Link to="/home"> <NavComponent context="Home" /> </Link>
+        <Link to ="/trialHome"> <NavComponent context="Trial " /></Link>
         <Link to ="/patient"><NavComponent context="Patients" /></Link>
         <Link to ="/organisation"> <NavComponent context="Trial Organizations" /></Link>
-        <Link to ="/trialHome"> <NavComponent context="Trial " /></Link>
        
     </div>;
 };

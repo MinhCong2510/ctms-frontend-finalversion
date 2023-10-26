@@ -21,6 +21,7 @@ function App() {
     <BrowserRouter>
         <Routes>
             <Route index element={<Login />}></Route>
+            <Route path='/login' element={<Login/>}></Route>
             <Route path='/home' element={<HomePage />}></Route>
             <Route path="/trialHome" element={<Trial_HomePage/>}></Route>
             <Route path="/trial" element={<Trial/>}></Route>
