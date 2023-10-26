@@ -15,6 +15,7 @@ import { Patient_Home } from './components/patient-home/patient-home';
 import { CreatePatient_Page } from './components/create-patient-page/create-patient-page';
 import { Patient } from './components/patient/patient';
 import { Trial } from './components/trial/trial';
+import { StaffHome } from './components/staff-home/staff-home';
 
 function App() {
     return (
@@ -35,6 +36,7 @@ function App() {
             <Route path="/patient" element={<Patient_Home/>}></Route>
             <Route path="/addPatient" element={<CreatePatient_Page/>}></Route>
             <Route path="/patientInfo" element={<Patient/>}></Route>
+            <Route path="/staff" element={<StaffHome/>}></Route>
         </Routes>
     </BrowserRouter>
     );
