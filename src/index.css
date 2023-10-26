@@ -83,6 +83,17 @@ button:focus-visible {
     width: 200px;
     background-color: #034370;
     color: #FFFFFF;
+
+}
+
+
+.observation_BlockInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    color: #213547;
+    background-color: #ffffff;
+    line-height: 200%;
 }
 
 .Header {
@@ -118,7 +129,8 @@ button:focus-visible {
 .Trial_HomePage {
     display: flex;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    margin: 10px;
+    gap:10px;
 }
 
 .FullNavBar {
@@ -154,7 +166,6 @@ button:focus-visible {
     flex-direction: column;
     align-items: start;
     color: #034370;
-    box-shadow: 0 3px 27px rgba(0, 0, 0, 0.15);
     opacity: 1;
     flex-wrap: wrap;
 }
@@ -237,10 +248,13 @@ margin-top: -50px;
 .popUpContainer{
     width:50%;
     position:fixed;
-    top:40%;
+    top:50%;
     left:50%;
     transform:translate(-50%,-50%);
-    display:flex;
     background-color: #ffffff;
     box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.15);
+}
+
+.padding{
+    padding:10px;
 }

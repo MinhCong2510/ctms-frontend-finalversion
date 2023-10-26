@@ -13,17 +13,9 @@ export interface Observation_SummaryReportProps {
  */
 export const Observation_SummaryReport = ({ className, id }: Observation_SummaryReportProps) => {
     return <div className="Trial_Obs_ViewReport">
-    <div className="TrialOrg_BlockInfo">
-            <img src="https://static.vecteezy.com/system/resources/previews/007/126/739/non_2x/question-mark-icon-free-vector.jpg"
-                style={{
-                    paddingRight: '10px',
-                    paddingLeft: '10px',
-                    height: 150,
-                    width: 150,
-                    objectFit: 'cover',
-                }} />
-            <h4> Observation - {id}
-                <br />
+    <div className="observation_BlockInfo">
+            <div className="Trial_HomePage_Description"> 
+               
                 Date of report: [insert the date this report created]
                 <br />
                 Duration- [insert the amount of time this observation carry out]
@@ -35,7 +27,7 @@ export const Observation_SummaryReport = ({ className, id }: Observation_Summary
                 References- [insert trial references]
 
             
-            </h4></div>
+            </div></div>
     
     </div>;
 };
