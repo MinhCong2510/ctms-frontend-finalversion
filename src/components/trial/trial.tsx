@@ -32,18 +32,19 @@ export const Trial = ({ className , id, status, name, participants}: TrialProps)
     const [patients, setPatients] = useState([]); // state for storing list of patients
     const patientGetUrl = 'http://localhost:8000/api/patients/';
     
-    const [trialOrg, setTrialOrg] = useState([]);
-    const orgGetUrl = 'http://localhost:8000/api/trialorgs/' + info['organisationid'] + '/';
+
+    const [observations, setObservations] = useState([]);
+    const obsGetUrl = 'http://localhost:8000/api/observations/'
 
     // when the page renders, get all the trial and patients from database
     useEffect(() => {
         fetchGet(infoGetUrl, setInfo);
         fetchGet(patientGetUrl, setPatients);
-        
-        setTimeout(() => fetchGet(orgGetUrl, setTrialOrg),500); // artificial 500ms delay to make sure info is available
+        fetchGet(obsGetUrl, setObservations);
     }, [])
     
     let patientCount = 0; // number of patients in the trial
+    
     const listPatients = patients.map(patient => 
         {
             if (patient['trialid'] == trialId)
@@ -52,6 +53,12 @@ export const Trial = ({ className , id, status, name, participants}: TrialProps)
             }
         }
     )
+
+    const listObservations = observations
+        .filter((observation) => observation['trialid'] == trialId)
+        .map(observation => 
+            <Observation_SummaryReport date={observation['date']} treatment={observation['treatment']} staff={observation['staffid']}/>
+            )
     
     return (
         <div>
@@ -61,31 +68,12 @@ export const Trial = ({ className , id, status, name, participants}: TrialProps)
                 <div className={classNames("Trial_HomePage_ContentBlock")}>
             </div>
             <div className="padding">
-                <div className="Trial_HomePage_Description">
-                        <p>
-                        <h3>Trial Name: </h3>
-                        {info['trialname']}
-                        <br/>
-                        <h3>Description: </h3>
-                        {info['trialdescription']}
-                        <br/>
-                        <h3>Status: </h3>
-                        {info['status']}
-                        <br/>
-                        <h3>Start Date: </h3>
-                        {info['datecreated']}
-                        <br/>
-                        <br/>
-                        <h3>Sponsor Organisation: </h3>
-                        {trialOrg['organisationname']}
-                        
-                    </p>
-                </div>
+                <Trial_HomePage_Description name={info['trialname']} description={info['trialdescription']} status={info['status']} dateCreated={info['datecreated']}/>
             <div className={classNames("TrialOrg_Header", "Trial_HomePage_Description")}>
             <h3 >Observations</h3>
                 <AddObservation_Button/> 
             </div>
-            <Observation_SummaryReport/>
+            {listObservations}
         </div>
         </div>
             <PopTrigger />

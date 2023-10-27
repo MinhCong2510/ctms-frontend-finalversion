@@ -4,34 +4,32 @@ import { Observation_SummaryReport } from '../observation-summary-report/observa
 
 export interface Trial_HomePage_DescriptionProps {
     className?: string;
+    name?: string;
+    description?: string;
+    status?: string;
+    dateCreated?: string;
 }
 
 /**
  * This component was created using Codux's Default new component template.
  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522
  */
-export const Trial_HomePage_Description = ({ className }: Trial_HomePage_DescriptionProps) => {
+export const Trial_HomePage_Description = ({ className, name, description, status, dateCreated }: Trial_HomePage_DescriptionProps) => {
     return <div className="Trial_HomePage_Description">
-
-                    <p>
-                     <h3>Trial Name: </h3>
-                     [Trial name props] 
-                    <br/>
-                    <h3>Description: </h3>
-                    [Description props]
-                    <br/>
-                    <h3>Status: </h3>
-                    [status props]
-                    <br/>
-                    <h3>Start Date: </h3>
-                    [startDate props]
-                    <br/>
-                    <h3>Treatment used: </h3> 
-                    [treatment props]
-                    <br/>
-                    <h3>Sponsor Organisation: </h3>
-                    [organisation props]
-                    
-                </p>
-    </div>;
+    <p>
+    <h3>Trial Name: </h3>
+    {name}
+    <br/>
+    <h3>Description: </h3>
+    {description}
+    <br/>
+    <h3>Status: </h3>
+    {status}
+    <br/>
+    <h3>Start Date: </h3>
+    {dateCreated}
+    <br/>
+    
+</p>
+</div>;
 };

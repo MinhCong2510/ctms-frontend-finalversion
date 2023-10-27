@@ -34,7 +34,9 @@ export const Trial_HomePage = ({ className }: Trial_HomePageProps) => {
     
     const listTrials = trials.map(trial => 
         // <li>{contact.id} | {contact.name}</li>
-        <Trial_BlockInfo key={trial['trialid']} id={trial['trialid']} context={trial['status']}/>
+        {
+            if (trial['trialid'] != -1) return (<Trial_BlockInfo key={trial['trialid']} id={trial['trialid']} context={trial['status']}/>)
+        }
     )
 
     return (

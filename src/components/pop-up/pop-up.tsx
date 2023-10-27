@@ -1,12 +1,14 @@
 import React from "react";
 
 import { GenerateReport_button } from "../generate-report-button/generate-report-button";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const PopUp=({open, onClose}) =>{
     if (!open) return null
         let date= new Date();
         let dateS=date.toLocaleDateString();
+
+    const {trialId} = useParams();
     return (
         <>
     <div className="popUpContainer">
@@ -16,7 +18,7 @@ const PopUp=({open, onClose}) =>{
         <br/>
         <h2 style={{textAlign:"left", paddingLeft: "20px"}}>Trial Ended on {dateS} <br/> Status: Completed<br/> Duration: [Duration]</h2>
         {/* Please replace [Duration] with actual duration.Maybe date() less dateCreated? */}
-        <div><Link style={{textAlign:"center"}}to="/GenerateReport"><GenerateReport_button/></Link>
+        <div><Link style={{textAlign:"center"}}to="report"><GenerateReport_button/></Link>
         </div>
         </div>
     </div >

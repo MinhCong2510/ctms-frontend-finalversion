@@ -30,11 +30,11 @@ function App() {
                     <Route path='/home' element={<HomePage />}></Route>
                     <Route path='/addtrial' element={<Add_NewTrial_Form/>}></Route>
                     <Route path='/trialInfo' element={<Trial/>}></Route>
-                    <Route path="/GenerateReport" element={<Generated_ClinicalReport/>}></Route>
                     <Route path="/trials">
                         <Route index element={<Trial_HomePage/>}></Route>
                         <Route path=':trialId/'>
                             <Route index element={<Trial/>}></Route>
+                            <Route path="report" element={<Generated_ClinicalReport/>}></Route>
                             <Route path="observations" element={<Trial_Observation/>}></Route>
                             <Route path="add" element={<Add_Observation_Form/>}></Route>
                         </Route>
