@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import styles from './patiet-blockinfo.module.scss';
 import { Link } from 'react-router-dom';
 import { Delete_Button } from '../delete-button/delete-button';
+import { fetchDelete } from '../fetch/fetch';
 
 export interface Patiet_blockinfoProps {
     className?: string;
@@ -20,6 +21,7 @@ export interface Patiet_blockinfoProps {
 export const Patiet_blockinfo = ({ className , id, firstName, lastName, gender, dateOfBirth, apartOf}: Patiet_blockinfoProps) => {
     const linkTo = '/patients/' + id;
     
+    
     return (
         <>
         <Link to={linkTo}>
@@ -36,7 +38,7 @@ export const Patiet_blockinfo = ({ className , id, firstName, lastName, gender, 
         Date of Birth: {dateOfBirth}
         <br/>
         Apart of trial: {apartOf}
-        <div style={{textAlign:"right"}}><Delete_Button/></div>
+        <div style={{textAlign:"right"}}><Delete_Button deleteFunc={() => {fetchDelete('http://localhost:8000/api/patients/', id)}}/></div>
         </h4>
 
     </div>

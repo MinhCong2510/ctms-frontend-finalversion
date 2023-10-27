@@ -24,14 +24,21 @@ export function fetchPost(url:string, content: any)
         .then(data => console.log("Added ", data.name))
     }
 
-    export function defineGender(value: boolean)
+export function fetchDelete(url:string, id: string)
+{
+    fetch(url + id + '/', {method: 'DELETE'})
+    .then(() => console.log("Removed contact ", id ))
+    // .then(() => window.location.reload())
+}
+
+export function defineGender(value: boolean)
+{
+    if (value==false)
     {
-        if (value==false)
-        {
-            return 'Female';
-        }
-        else
-        {
-            return 'Male';
-        }
+        return 'Female';
     }
+    else
+    {
+        return 'Male';
+    }
+}
