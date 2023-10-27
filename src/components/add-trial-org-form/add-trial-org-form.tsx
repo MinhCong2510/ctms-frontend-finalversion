@@ -6,6 +6,7 @@ import { Header } from '../header/header';
 import { FullNavBar } from '../full-nav-bar/full-nav-bar';
 import {Link} from 'react-router-dom';
 import InputMask from 'react-input-mask';
+import { fetchPost } from '../fetch/fetch';
 
 export interface Add_TrialOrg_FormProps {
     className?: string;
@@ -22,7 +23,8 @@ function PhoneInput(props) {
       <InputMask 
         mask='9999999999' 
         value={props.value} 
-        onChange={props.onChange}>
+        onChange={props.onChange}
+        id='phone-number'>
       </InputMask>
     );
   }
@@ -30,6 +32,16 @@ function PhoneInput(props) {
 export const Add_TrialOrg_Form = ({ className }: Add_TrialOrg_FormProps) => {
     const [phone, setPhone] = useState('');
     const handleInput = ({ target: { value } }) => setPhone(value);
+
+    function addTrialOrg()
+    {
+      fetchPost('http://localhost:8000/api/trialorgs/', {
+        organisationname: (document.getElementById('name') as HTMLInputElement).value,
+        contactnumber: (document.getElementById('phone-number') as HTMLInputElement).value
+      })
+      const redirectUrl = '/organisations';
+      window.location.replace(redirectUrl)
+    }
     return <div>
 
         <Header />
@@ -40,17 +52,15 @@ export const Add_TrialOrg_Form = ({ className }: Add_TrialOrg_FormProps) => {
 
             <h3>Add Trial Organization</h3>
             <div className="Add_Trial_Form">
-                <Input_Component context="Name " />
+                <Input_Component context="Name " id="name"/>
                 <div className="TrialOrg_Header" >
                   Contact Number: 
                 <PhoneInput
                     value={phone} 
                     onChange={handleInput}>
                 </PhoneInput></div>
-                <Input_Component context="Sponsor for " />
             </div>
-             <Link to="/home"> <button className="CreateTrialButton">Add New Trial Organization</button> </Link>
-
+            <button className="CreateTrialButton" onClick={addTrialOrg}>Add New Trial Organization</button>
         </div>
 
     </div>;

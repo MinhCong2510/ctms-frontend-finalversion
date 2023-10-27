@@ -18,9 +18,11 @@ export interface Patiet_blockinfoProps {
  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522
  */
 export const Patiet_blockinfo = ({ className , id, firstName, lastName, gender, dateOfBirth, apartOf}: Patiet_blockinfoProps) => {
+    const linkTo = '/patients/' + id;
+    
     return (
         <>
-        <Link to="/patientInfo">
+        <Link to={linkTo}>
         <div className="TrialOrg_BlockInfo">
        
         <h4>ID: {id}
@@ -33,7 +35,7 @@ export const Patiet_blockinfo = ({ className , id, firstName, lastName, gender, 
         <br/>
         Date of Birth: {dateOfBirth}
         <br/>
-        Apart of: {apartOf}
+        Apart of trial: {apartOf}
         <div style={{textAlign:"right"}}><Delete_Button/></div>
         </h4>
 

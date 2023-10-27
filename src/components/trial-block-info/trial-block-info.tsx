@@ -1,8 +1,7 @@
 import classNames from 'classnames';
 import styles from './trial-block-info.module.scss';
-import { Link } from 'react-router-dom';
-import { Delete_Button } from '../delete-button/delete-button';
 import { Link, useParams } from 'react-router-dom';
+import { Delete_Button } from '../delete-button/delete-button';
 import { useEffect, useState } from 'react';
 
 export interface Trial_BlockInfoProps {

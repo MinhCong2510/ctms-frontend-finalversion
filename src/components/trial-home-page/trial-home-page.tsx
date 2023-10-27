@@ -12,6 +12,7 @@ import { BrowserRouter, Routes, Route,Link, useParams} from 'react-router-dom';
 import { Trial_HomePage_Overview } from '../trial-home-page-overview/trial-home-page-overview';
 import { Trial_Observation } from '../trial-observation/trial-observation';
 import PopTrigger from '../pop-trigger/pop-trigger';
+import { fetchGet } from '../fetch/fetch';
 
 
 
@@ -23,88 +24,32 @@ export interface Trial_HomePageProps {
  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522
  */
 
-export const Trial_HomePage = ({ className, id, status, name, participants }: Trial_HomePageProps) => {
-    const [info, setInfo] = useState([]); // state for storing trial informations
-    const [patients, setPatients] = useState([]) // state for storing list of patients
+export const Trial_HomePage = ({ className }: Trial_HomePageProps) => {
+    const [trials, setTrials] = useState([]);
+    const trialGetUrl = 'http://localhost:8000/api/trials/'
     
-    let {trialId} = useParams(); // getting the trial id from the url
-    let patientCount = 0; // number of patients in the trial
-
-    // when the page renders, get all the trial and patients from database
     useEffect(() => {
-        fetchTrialInfo();
-        fetchPatients();
+        fetchGet(trialGetUrl, setTrials);
     }, [])
-
-    const fetchUrl = 'http://localhost:8000/api/trials/' + trialId + '/'; // defining a fetching url for getting the trial info
-
-
-    function fetchTrialInfo()
-    {
-        fetch(fetchUrl)
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-                setInfo(data);
-            })
-            .catch((err) => {
-                console.log(err.message);
-            });
-    }
-
-    function fetchPatients()
-    {
-        fetch('http://localhost:8000/api/patients/')
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-                setPatients(data);
-            })
-            .catch((err) => {
-                console.log(err.message);
-            });
-    }
-
-    const listPatients = patients.map(patient => 
+    
+    const listTrials = trials.map(trial => 
+        // <li>{contact.id} | {contact.name}</li>
         {
-            if (patient['trialid'] == trialId)
-            {
-                patientCount++;
-            }
+            if (trial['trialid'] != -1) return (<Trial_BlockInfo key={trial['trialid']} id={trial['trialid']} context={trial['status']}/>)
         }
     )
 
-    console.log(patientCount)
-    
     return (
         <div>
-            <FullNavBar />
-             <div className="Trial_HomePage_ContentBlock">
-                <Trial_HomePage_Overview
-                name={info['trialname']}
-                id={trialId}
-                status={info['status']}
-                participants={patientCount.toString()}/>
-            <div>
-                <Link to="/observations">    <button className="CreateTrialButton">Observation</button>  </Link>
-                <button className="CreateTrialButton">Submission </button>
-                <button className="CreateTrialButton">Trial record</button>
-                <Link to="/GenerateReport"> <button className="CreateTrialButton">Generate report</button> </Link>
+            <Header />
+                <FullNavBar />
+                <div className={classNames(styles.TrialsPageHeader, 'TrialOrg_Header', "padding")}>
+                <h1>Trials</h1>
+                <Create_NewTrial_Button/></div>
+                <div className="Trial_HomePage">
+                    {listTrials}
+                </div>
             </div>
-            <h3>Trial Overview</h3>
-            <p>{info['trialdescription']}</p>
-            <h3>Trial Plan</h3>
-            <p>[Insert trial plans include trial design and measurement]</p>
-            <h3>Trial Measuring</h3>
-            <p>[Insert trial measurement include trial outcome and timeframe]</p>
-            <h3>Participants Criteria</h3>
-            <p>[Insert participants eligible criteria and population]</p>
-            <h3>Trial Organization - Collaborators</h3>
-            <p>[Insert trial staffs and organizations involved within this trial.]</p>
-            <h3>Contact - Location</h3>
-            <p>[Insert the contact details, locations of the trial that conducting the study]</p>
-
-        </div>
-        <PopTrigger />
-        </div>
+        )
 };
+

@@ -5,6 +5,8 @@ import { FullNavBar } from '../full-nav-bar/full-nav-bar';
 import { Create_NewTrialOrg_button } from '../create-new-trial-org-button/create-new-trial-org-button';
 import { TrialOrg_BlockInfo } from '../trial-org-block-info/trial-org-block-info';
 import { Filter_Component } from '../filter-component/filter-component';
+import { useEffect, useState } from 'react';
+import { fetchGet } from '../fetch/fetch';
 
 export interface TrialOrg_FullPageProps {
     className?: string;
@@ -20,15 +22,27 @@ export interface TrialOrg_FullPageProps {
 
 
 export const TrialOrg_FullPage = ({ className }: TrialOrg_FullPageProps) => {
+    const [organisations, setOrganisations] = useState([]);
+    const organisationGetUrl = 'http://localhost:8000/api/trialorgs/'
+
+    useEffect(() => {
+        fetchGet(organisationGetUrl, setOrganisations)
+    }, [])
+
+    const listOrganisations = organisations.map(organisation =>
+        <TrialOrg_BlockInfo name={organisation['organisationname']} id={organisation['organisationid']} contactNumber={organisation['contactnumber']} />
+        )
+    
     return <div >
         <Header />
         <FullNavBar />
         <div className={classNames(styles.TrialsPageHeader, 'TrialOrg_Header', "padding")}>
             <h1>Trial Organization</h1>
-            <Create_NewTrialOrg_button /></div>
+            <Create_NewTrialOrg_button />
+        </div>
 
         <div className="Trial_HomePage">
-            <TrialOrg_BlockInfo name="ABC" id="123" contactNumber="02......" />
-            <TrialOrg_BlockInfo name="DEF" id="456" contactNumber="02....." />
-            <TrialOrg_BlockInfo name="GHI" id="789" contactNumber="02....." /></div></div>
+            {listOrganisations}
+        </div>
+    </div>
 };

@@ -14,6 +14,7 @@ import { BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import { EndTrial_button } from '../end-trial-button/end-trial-button';
 import { Patiet_blockinfo } from '../patiet-blockinfo/patiet-blockinfo';
 import { Create_Patient } from '../create-patient/create-patient';
+import { fetchGet,defineGender } from '../fetch/fetch';
 import { Staff_BlockInfo } from '../staff-block-info/staff-block-info';
 
 export interface HomePageProps {
@@ -29,28 +30,40 @@ export interface HomePageProps {
 
 export const HomePage = ({ className }: HomePageProps) => {
     const [trials, setTrials] = useState([]);
+    const trialGetUrl = 'http://localhost:8000/api/trials/';
+
+    const [patients, setPatients] = useState([]);
+    const patientGetUrl = 'http://localhost:8000/api/patients/'
+
+    const [organisations, setOrganisations] = useState([]);
+    const organisationGetUrl = 'http://localhost:8000/api/trialorgs/'
+
 
     useEffect(() => {
-        fetchTrials();
+        fetchGet(trialGetUrl, setTrials)
+        fetchGet(patientGetUrl, setPatients)
+        fetchGet(organisationGetUrl, setOrganisations)
     }, [])
-    
-    function fetchTrials()
-    {
-        fetch('http://localhost:8000/api/trials/')
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data);
-            setTrials(data);
-        })
-        .catch((err) => {
-            console.log(err.message);
-        });
-    }
 
     const listTrials = trials.map(trial => 
         // <li>{contact.id} | {contact.name}</li>
         <Trial_BlockInfo key={trial['trialid']} id={trial['trialid']} context={trial['status']}/>
     )
+
+    const listPatients = patients.map(patient => 
+        <Patiet_blockinfo
+        id={patient['patientid']}
+        firstName={patient['firstname']}
+        lastName={patient['lastname']}
+        gender={defineGender(patient['m_gender'])}
+        dateOfBirth={patient['dateofbirth']}
+        apartOf={patient['trialid']}
+        />
+    )
+
+    const listOrganisations = organisations.map(organisation =>
+        <TrialOrg_BlockInfo name={organisation['organisationname']} id={organisation['organisationid']} contactNumber={organisation['contactnumber']} />
+        )
     
     return <div >
         <Header />
@@ -71,17 +84,16 @@ export const HomePage = ({ className }: HomePageProps) => {
                 
             </div>
             <div className="Trial_HomePage">
-                <Patiet_blockinfo  id="123" firstName="[props.firstName]" lastName="props.lastName" gender="[props.gender]" dateOfBirth="[props.dateOfBirth]"/>
-                <Patiet_blockinfo  id="123" firstName="[props.firstName]" lastName="props.lastName" gender="[props.gender]" dateOfBirth="[props.dateOfBirth]"/>
+                {listPatients}
+                {/* <Patiet_blockinfo  id="123" firstName="[props.firstName]" lastName="props.lastName" gender="[props.gender]" dateOfBirth="[props.dateOfBirth]"/>
+                <Patiet_blockinfo  id="123" firstName="[props.firstName]" lastName="props.lastName" gender="[props.gender]" dateOfBirth="[props.dateOfBirth]"/> */}
             </div>
             <div className={classNames(styles.TrialsPageHeader, 'TrialOrg_Header')}>
             <h1>Trial Organization</h1>
                 <Create_NewTrialOrg_button />
             </div>
             <div className="Trial_HomePage">
-                <TrialOrg_BlockInfo name="ABC" id="123" contactNumber="02......" />
-                <TrialOrg_BlockInfo name="DEF" id="456" contactNumber="02......" />
-                <TrialOrg_BlockInfo name="GHI" id="789" contactNumber="02......" />
+                {listOrganisations}
             </div>
             <div className={classNames(styles.TrialsPageHeader, 'TrialOrg_Header')}>
             <h1>Staff</h1>

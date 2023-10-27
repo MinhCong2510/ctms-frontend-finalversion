@@ -12,6 +12,6 @@ export interface Create_PatientProps {
  */
 export const Create_Patient = ({ className }: Create_PatientProps) => {
     return <div>
-        <Link to="/addPatient"><button className="CreateTrialButton">Add New Patient</button></Link>
+        <Link to="/patients/add"><button className="CreateTrialButton">Add New Patient</button></Link>
     </div>;
 };
