@@ -32,10 +32,6 @@ export const Trial_BlockInfo = ({ className, id, name, context, treatment, parti
         Trial: {name}
         <br/>
         Status:{context}
-        <br/>
-        Treatment: {treatment}
-        <br/>
-        Participation: {participants}
         {/* Recruiting/Completed/Terminate/Suspend */}
         </h4>
         </div>

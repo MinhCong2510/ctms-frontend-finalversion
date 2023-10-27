@@ -68,7 +68,7 @@ export const Trial = ({ className , id, status, name, participants}: TrialProps)
                 <div className={classNames("Trial_HomePage_ContentBlock")}>
             </div>
             <div className="padding">
-                <Trial_HomePage_Description name={info['trialname']} description={info['trialdescription']} status={info['status']} dateCreated={info['datecreated']}/>
+                <Trial_HomePage_Description name={info['trialname']} description={info['trialdescription']} status={info['status']} dateCreated={info['datecreated']} participants={patientCount}/>
             <div className={classNames("TrialOrg_Header", "Trial_HomePage_Description")}>
             <h3 >Observations</h3>
                 <AddObservation_Button/> 

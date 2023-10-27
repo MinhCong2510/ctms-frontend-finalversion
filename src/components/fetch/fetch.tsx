@@ -28,7 +28,7 @@ export function fetchDelete(url:string, id: string)
 {
     fetch(url + id + '/', {method: 'DELETE'})
     .then(() => console.log("Removed contact ", id ))
-    // .then(() => window.location.reload())
+    .then(() => window.location.reload())
 }
 
 export function defineGender(value: boolean)
