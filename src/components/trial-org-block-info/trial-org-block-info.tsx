@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import styles from './trial-org-block-info.module.scss';
+import { Delete_Button } from '../delete-button/delete-button';
 
 export interface TrialOrg_BlockInfoProps {
     className?: string;
@@ -19,6 +20,7 @@ export const TrialOrg_BlockInfo = ({ className, name, contactNumber, id }: Trial
         ID: {id}
         <br/>
         Contact:{contactNumber}
+        <div style={{textAlign:"right"}}><Delete_Button/></div>
         </h4>
         
     </div>;

@@ -15,6 +15,7 @@ import { EndTrial_button } from '../end-trial-button/end-trial-button';
 import { Patiet_blockinfo } from '../patiet-blockinfo/patiet-blockinfo';
 import { Create_Patient } from '../create-patient/create-patient';
 import { fetchGet,defineGender } from '../fetch/fetch';
+import { Staff_BlockInfo } from '../staff-block-info/staff-block-info';
 
 export interface HomePageProps {
     className?: string;
@@ -94,7 +95,41 @@ export const HomePage = ({ className }: HomePageProps) => {
             <div className="Trial_HomePage">
                 {listOrganisations}
             </div>
-            
+            <div className={classNames(styles.TrialsPageHeader, 'TrialOrg_Header')}>
+            <h1>Staff</h1>
+            </div>
+            <div className="Trial_HomePage">
+            <Staff_BlockInfo
+                    id="123"
+                    firstName="[props.firstName]"
+                    lastName="[props.lastName]"
+                    trialInvolved="[props.trialInvolved]" 
+                    />
+                    <Staff_BlockInfo
+                    id="123"
+                    firstName="[props.firstName]"
+                    lastName="[props.lastName]"
+                    trialInvolved="[props.trialInvolved]" 
+                    />
+                    <Staff_BlockInfo
+                    id="123"
+                    firstName="[props.firstName]"
+                    lastName="[props.lastName]"
+                    trialInvolved="[props.trialInvolved]" 
+                    />
+                    <Staff_BlockInfo
+                    id="123"
+                    firstName="[props.firstName]"
+                    lastName="[props.lastName]"
+                    trialInvolved="[props.trialInvolved]" 
+                    />
+                    <Staff_BlockInfo
+                    id="123"
+                    firstName="[props.firstName]"
+                    lastName="[props.lastName]"
+                    trialInvolved="[props.trialInvolved]" 
+                    />
+            </div>
         </div>
     </div>
 };

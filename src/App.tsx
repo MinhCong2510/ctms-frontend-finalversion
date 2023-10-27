@@ -17,6 +17,7 @@ import { Patient } from './components/patient/patient';
 import { Trial } from './components/trial/trial';
 import { RoleContext } from './RoleContext';
 import { Trial_HomePage_Overview } from './components/trial-home-page-overview/trial-home-page-overview';
+import { StaffHome } from './components/staff-home/staff-home';
 import Wrapper from './Wrapper';
 
 function App() {
@@ -46,9 +47,11 @@ function App() {
                         <Route path="add" element={<CreatePatient_Page/>}></Route>
                         <Route path=':patientId/' element={<Patient/>}></Route>
                     </Route>
+                    <Route path="/staff" element={<StaffHome/>}></Route>
                 </Routes>
             </BrowserRouter>
         </Wrapper>
+
     );
 }
 

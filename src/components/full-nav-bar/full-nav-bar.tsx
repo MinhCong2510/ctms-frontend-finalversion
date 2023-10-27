@@ -21,6 +21,7 @@ export const FullNavBar = ({ className }: FullNavBarProps) => {
         <Link to ="/trials"> <NavComponent context="Trial " /></Link>
         <Link to ="/patients"><NavComponent context="Patients" /></Link>
         <Link to ="/organisations"> <NavComponent context="Trial Organizations" /></Link>
+        <Link to ="/staff"> <NavComponent context="Staff" /></Link>
        
     </div>;
 };
