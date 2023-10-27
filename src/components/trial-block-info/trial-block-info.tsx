@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import styles from './trial-block-info.module.scss';
-import { Link } from 'react-router-dom';
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
@@ -20,29 +19,29 @@ export interface Trial_BlockInfoProps {
 
 
 export const Trial_BlockInfo = ({ className, id, context }: Trial_BlockInfoProps) => {
-    const [info, setInfo] = useState([]);
-    let {trialId} = useParams();
-    useEffect(() => {
-        fetchTrialInfo();
-    }, [])
-    const fetchUrl = 'http://localhost:8000/api/trials/' + trialId + '/';
+    // const [info, setInfo] = useState([]);
+    // let {trialId} = useParams();
+    // useEffect(() => {
+    //     fetchTrialInfo();
+    // }, [])
+    // const fetchUrl = 'http://localhost:8000/api/trials/' + trialId + '/';
 
 
-    function fetchTrialInfo()
-    {
-        fetch(fetchUrl)
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-                setInfo(data);
-            })
-            .catch((err) => {
-                console.log(err.message);
-            });
-    }
+    // function fetchTrialInfo()
+    // {
+    //     fetch(fetchUrl)
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             console.log(data);
+    //             setInfo(data);
+    //         })
+    //         .catch((err) => {
+    //             console.log(err.message);
+    //         });
+    // }
     
-    console.log(info)
-    let trialLink = "/trials/" + id;
+    // console.log(info)
+    let trialLink = "/trials/" + id;    
     return <Link to={trialLink}>
         <div className="Trial_BlockInfo">
             <h4>Trial number:{id} {/* number */}</h4>

@@ -2,6 +2,9 @@ import classNames from 'classnames';
 import styles from './patient.module.scss';
 import { Header } from '../header/header';
 import { FullNavBar } from '../full-nav-bar/full-nav-bar';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { defineGender, fetchGet } from '../fetch/fetch';
 
 export interface PatientProps {
     className?: string;
@@ -13,32 +16,37 @@ export interface PatientProps {
  */
 
 export const Patient = ({ className }: PatientProps) => {
+    let {patientId} = useParams(); // getting the trial id from the url
+    const [info, setInfo] = useState([]); // state for storing trial informations
+    const infoGetUrl = 'http://localhost:8000/api/patients/' + patientId + '/'; // defining a fetching url for getting the trial info
+
+    useEffect(() => {
+        fetchGet(infoGetUrl, setInfo);
+    }, [])
     
+    
+
     return (
     <div>
         <Header />
         <div>
             <FullNavBar />
              <div className="Trial_HomePage_ContentBlock">
-                <p>
                      <h3>First Name: </h3>
-                     [First name props] 
+                    {info['firstname']}
                     <br/>
                     <h3>Last Name: </h3>
-                    [Last name props]
+                    {info['lastname']}
                     <br/>
                     <h3>Gender: </h3>
-                    [gender props]
+                    {defineGender(info['m_gender'])}
                     <br/>
                     <h3>Date of Birth: </h3>
-                    [date of birth props]
+                    {info['dateofbirth']}
                     <br/>
                     <h3>Apart of: </h3> 
-                    [trial ID props]
+                    {info['trialid']}
                     <br/>
-                    <h3>Observations: </h3>
-                    [observations with patient ID]
-                </p>
         </div>
         </div>
 

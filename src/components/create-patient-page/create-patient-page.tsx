@@ -1,11 +1,12 @@
 import classNames from 'classnames';
 import styles from './create-patient-page.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Header } from '../header/header';
 import { FullNavBar } from '../full-nav-bar/full-nav-bar';
 import { Input_Component } from '../input-component/input-component';
 import { Link } from 'react-router-dom';
 import InputMask from 'react-input-mask';
+import { fetchGet, fetchPost } from '../fetch/fetch';
 
 export interface CreatePatient_PageProps {
     className?: string;
@@ -13,9 +14,10 @@ export interface CreatePatient_PageProps {
 function DateInput(props) {
   return (
     <InputMask 
-      mask='99/99/9999' 
+      mask='9999-99-99' 
       value={props.value} 
-      onChange={props.onChange}>
+      onChange={props.onChange}
+      id='dob'>
     </InputMask>
   );
 }
@@ -27,7 +29,30 @@ function DateInput(props) {
 export const CreatePatient_Page = ({ className }: CreatePatient_PageProps) => {
     
     const [date, setDate] = useState('');
+    const [trials, setTrials] = useState([]);
     const handleInput = ({ target: { value } }) => setDate(value);
+
+    useEffect(() => {
+      fetchGet('http://localhost:8000/api/trials/', setTrials);
+  }, [])
+    
+    const listTrials = trials.map(trial => (
+      <option value={trial['trialid']}>{trial['trialid']} | {trial['trialname']}</option>
+    ))
+
+
+    function createPatient()
+    {
+      fetchPost('http://localhost:8000/api/patients/', {
+        firstname: (document.getElementById('firstname') as HTMLInputElement).value,
+        lastname: (document.getElementById('lastname') as HTMLInputElement).value,
+        m_gender: (document.getElementById('gender-select') as HTMLInputElement).value,
+        dateofbirth: (document.getElementById('dob') as HTMLInputElement).value,
+        trialid: (document.getElementById('trial-select') as HTMLInputElement).value,
+      })
+      const redirectUrl = '/patients/';
+        window.location.replace(redirectUrl)
+    }
     return <div>
 
         <Header />
@@ -38,19 +63,30 @@ export const CreatePatient_Page = ({ className }: CreatePatient_PageProps) => {
 
             <h3>Add Patient</h3>  
             <div className="Add_Trial_Form">
-               <Input_Component context="First Name " />
-                <Input_Component context="Last Name " />
-                <Input_Component context="Gender " />
+               <Input_Component context="First Name" id="firstname"/>
+                <Input_Component context="Last Name" id="lastname"/>
+                <div>
+                Gender:
+                <select name="Select Gender" id="gender-select">
+                  <option value="1">Male</option>
+                  <option value="0">Female</option>
+                </select>
+                </div>
                 <div className="TrialOrg_Header" >
-                  Date of Birth
-                <DateInput
+                  Date of Birth: <DateInput
                     value={date} 
                     onChange={handleInput}
                     placeholder="Date of Birth: ">
                 </DateInput></div>
-                <Input_Component context="Participating in " /> 
+                <div>
+                Assign to trial: 
+                <select  id="trial-select">
+                  {listTrials}
+                </select>
+                </div>
+                {/* <Input_Component context="Participating in " />  */}
             </div>
-             <Link to="/home"> <button className="CreateTrialButton">Add Patient</button> </Link>
+            <button className="CreateTrialButton" onClick={createPatient}>Add Patient</button>
         </div>
 
     </div>;

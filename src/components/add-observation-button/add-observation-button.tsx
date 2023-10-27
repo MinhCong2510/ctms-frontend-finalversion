@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 export interface AddObservation_ButtonProps {
     className?: string;
+    onClick?: Function;
 }
 
 /**
@@ -11,7 +12,10 @@ export interface AddObservation_ButtonProps {
  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522
  */
 export const AddObservation_Button = ({ className }: AddObservation_ButtonProps) => {
-        return <div>
-            <Link to="/addobservations"><button className="CreateTrialButton">Create New Observation</button></Link>
-        </div>
-    };
+    
+    
+    
+    return <div>
+        <Link to="add"><button className="CreateTrialButton">Create New Observation</button></Link>
+    </div>
+};
