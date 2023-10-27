@@ -4,6 +4,8 @@ import { Input_Component } from '../input-component/input-component';
 import { FullNavBar } from '../full-nav-bar/full-nav-bar';
 import { Header } from '../header/header';
 import {Link} from 'react-router-dom';
+import { fetchGet, fetchPost } from '../fetch/fetch';
+import { useEffect, useState } from 'react';
 
 export interface Add_NewTrial_FormProps {
     className?: string;
@@ -21,6 +23,29 @@ export const Add_NewTrial_Form = ({ className }: Add_NewTrial_FormProps) => {
         dateStyle: "short",
       });
     const date=dateFormat.format(Date.now());
+
+    const [organisations, setOrganisations] = useState([]);
+
+    useEffect(() => {
+        fetchGet('http://localhost:8000/api/trialorgs/', setOrganisations)
+    }, [])
+    
+    function addTrial()
+    {
+      fetchPost('http://localhost:8000/api/trials/', {
+        trialname: (document.getElementById('name') as HTMLInputElement).value,
+        trialdescription: (document.getElementById('desc') as HTMLInputElement).value,
+        status: 'Ongoing',
+        organisationid: (document.getElementById('org-select') as HTMLInputElement).value,
+      })
+      const redirectUrl = '/trials';
+    //   window.location.replace(redirectUrl)
+    }
+
+    const orgOptions = organisations.map(organisation =>
+            <option value={organisation['organisationid']}>{organisation['organisationname']}</option>
+        )
+
     return <div>
         <Header />
 
@@ -28,15 +53,24 @@ export const Add_NewTrial_Form = ({ className }: Add_NewTrial_FormProps) => {
         <div className="Add_Trial" style={{color:"#034370"}}>
             <h3>Add New Trial</h3>
             <div className="Add_Trial_Form">
-                <Input_Component context="Name " />
-                <Input_Component context="Description" />
-                <Input_Component context="Status" />
-                <Input_Component context="Treatment used" />
-                <Input_Component context="Sponsor organisation" />
+                <Input_Component context="Name " id='name'/>
+                <Input_Component context="Description" id='desc'/>
+                <div>
+                Status: 
+                <select name="" id="status-select">
+                    <option value="Finished">Finished</option>
+                </select>
+                </div>
+                <div>
+                Trial Organisation:
+                <select name="" id="org-select">
+                    {orgOptions}
+                </select>
                 <div className="TrialOrg_Header" >Created on:  {date}</div>
+                </div>
 
             </div>
-           <Link to="/home"> <button className="CreateTrialButton">Create New Trial</button> </Link>
+           <button className="CreateTrialButton" onClick={addTrial}>Create New Trial</button>
         </div>
 
     </div>;

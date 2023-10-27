@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import styles from './trial-org-block-info.module.scss';
 import { Delete_Button } from '../delete-button/delete-button';
+import { fetchDelete } from '../fetch/fetch';
 
 export interface TrialOrg_BlockInfoProps {
     className?: string;
@@ -20,8 +21,8 @@ export const TrialOrg_BlockInfo = ({ className, name, contactNumber, id }: Trial
         ID: {id}
         <br/>
         Contact:{contactNumber}
-        <div style={{textAlign:"right"}}><Delete_Button/></div>
         </h4>
+        <div style={{textAlign:"right"}}><Delete_Button deleteFunc={() => {fetchDelete('http://localhost:8000/api/trialorgs/', id)}}/></div>
         
     </div>;
 };

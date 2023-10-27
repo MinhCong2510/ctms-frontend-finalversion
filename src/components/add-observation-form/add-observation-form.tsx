@@ -50,10 +50,11 @@ export const Add_Observation_Form = ({ className }: Add_Observation_FormProps) =
             description: (document.getElementById('description-text') as HTMLInputElement).value,
             staffid: (document.getElementById('staff-select') as HTMLInputElement).value,
             patientid: (document.getElementById('patient-select') as HTMLInputElement).value,
+            treatment: (document.getElementById('treatment-text') as HTMLInputElement).value,
             trialid: trialId
         })
         const redirectUrl = '/trials/'+trialId;
-        window.location.replace(redirectUrl)
+        // window.location.replace(redirectUrl)
     }
 
     return <div>

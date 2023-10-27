@@ -23,7 +23,8 @@ export const Patiet_blockinfo = ({ className , id, firstName, lastName, gender, 
     
     
     return (
-        <>
+        <div>
+            
         <Link to={linkTo}>
         <div className="TrialOrg_BlockInfo">
        
@@ -38,11 +39,12 @@ export const Patiet_blockinfo = ({ className , id, firstName, lastName, gender, 
         Date of Birth: {dateOfBirth}
         <br/>
         Apart of trial: {apartOf}
-        <div style={{textAlign:"right"}}><Delete_Button deleteFunc={() => {fetchDelete('http://localhost:8000/api/patients/', id)}}/></div>
         </h4>
 
     </div>
     </Link>
-    </>
+        <div style={{textAlign:"right"}}><Delete_Button deleteFunc={() => {fetchDelete('http://localhost:8000/api/patients/', id)}}/></div>
+        </div>
+
     );
 };

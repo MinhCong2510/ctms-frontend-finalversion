@@ -47,9 +47,10 @@ export const HomePage = ({ className }: HomePageProps) => {
 
     const listTrials = trials.map(trial => 
         // <li>{contact.id} | {contact.name}</li>
-        <Trial_BlockInfo key={trial['trialid']} id={trial['trialid']} context={trial['status']}/>
+        {
+            if (trial['trialid'] != -1) return (<Trial_BlockInfo key={trial['trialid']} id={trial['trialid']} context={trial['status']}/>)
+        }
     )
-
     const listPatients = patients.map(patient => 
         <Patiet_blockinfo
         id={patient['patientid']}

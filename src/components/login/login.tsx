@@ -28,17 +28,21 @@ export const Login = ({ className }: LoginProps) => {
         const password = (document.getElementById('password') as HTMLInputElement).value
         fetchGet(fetchUrl, setStaffInfo)
         
+        
         if (password == staffInfo['firstname'])
         {
             setRole(staffInfo['privilegeid'])
             console.log(role)
+        } else
+        {
+            alert('Unable to login. Please try again')
         }
     }
     
     return <div className="Login">
-        <h1 style={{color:"#ffffff"}}>Welcome to eHealth Clinical Trial</h1>
+        <h1 style={{color:"black"}}>Welcome to eHealth Clinical Trial</h1>
 
-        <form style={{color:"white", fontSize:"20px"}}>
+        <form style={{color:"black", fontSize:"20px"}}>
         <label>Staff ID:</label>
         <br />
         <input type="text" id='staffid'/>

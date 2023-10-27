@@ -1,12 +1,12 @@
 import classNames from 'classnames';
 import styles from './add-trial-org-form.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Input_Component } from '../input-component/input-component';
 import { Header } from '../header/header';
 import { FullNavBar } from '../full-nav-bar/full-nav-bar';
 import {Link} from 'react-router-dom';
 import InputMask from 'react-input-mask';
-import { fetchPost } from '../fetch/fetch';
+import { fetchGet, fetchPost } from '../fetch/fetch';
 
 export interface Add_TrialOrg_FormProps {
     className?: string;
@@ -31,8 +31,11 @@ function PhoneInput(props) {
 
 export const Add_TrialOrg_Form = ({ className }: Add_TrialOrg_FormProps) => {
     const [phone, setPhone] = useState('');
+    const [organisations, setOrganisations] = useState([]);
     const handleInput = ({ target: { value } }) => setPhone(value);
 
+    
+    
     function addTrialOrg()
     {
       fetchPost('http://localhost:8000/api/trialorgs/', {
@@ -40,7 +43,7 @@ export const Add_TrialOrg_Form = ({ className }: Add_TrialOrg_FormProps) => {
         contactnumber: (document.getElementById('phone-number') as HTMLInputElement).value
       })
       const redirectUrl = '/organisations';
-      window.location.replace(redirectUrl)
+      // window.location.replace(redirectUrl)
     }
     return <div>
 
