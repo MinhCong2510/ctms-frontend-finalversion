@@ -97,39 +97,6 @@ export const HomePage = ({ className }: HomePageProps) => {
                 {listOrganisations}
             </div>
             <div className={classNames(styles.TrialsPageHeader, 'TrialOrg_Header')}>
-            <h1>Staff</h1>
-            </div>
-            <div className="Trial_HomePage">
-            <Staff_BlockInfo
-                    id="123"
-                    firstName="[props.firstName]"
-                    lastName="[props.lastName]"
-                    trialInvolved="[props.trialInvolved]" 
-                    />
-                    <Staff_BlockInfo
-                    id="123"
-                    firstName="[props.firstName]"
-                    lastName="[props.lastName]"
-                    trialInvolved="[props.trialInvolved]" 
-                    />
-                    <Staff_BlockInfo
-                    id="123"
-                    firstName="[props.firstName]"
-                    lastName="[props.lastName]"
-                    trialInvolved="[props.trialInvolved]" 
-                    />
-                    <Staff_BlockInfo
-                    id="123"
-                    firstName="[props.firstName]"
-                    lastName="[props.lastName]"
-                    trialInvolved="[props.trialInvolved]" 
-                    />
-                    <Staff_BlockInfo
-                    id="123"
-                    firstName="[props.firstName]"
-                    lastName="[props.lastName]"
-                    trialInvolved="[props.trialInvolved]" 
-                    />
             </div>
         </div>
     </div>

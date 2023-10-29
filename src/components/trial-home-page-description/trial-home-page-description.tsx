@@ -9,13 +9,14 @@ export interface Trial_HomePage_DescriptionProps {
     status?: string;
     dateCreated?: string;
     participants?: number;
+    participantList?:any;
 }
 
 /**
  * This component was created using Codux's Default new component template.
  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522
  */
-export const Trial_HomePage_Description = ({ className, name, description, status, dateCreated,participants }: Trial_HomePage_DescriptionProps) => {
+export const Trial_HomePage_Description = ({ className, name, description, status, dateCreated,participants, participantList}: Trial_HomePage_DescriptionProps) => {
     return <div className="Trial_HomePage_Description">
     <p>
     <h3>Trial Name: </h3>
@@ -23,6 +24,7 @@ export const Trial_HomePage_Description = ({ className, name, description, statu
     <br/>
     <h4>Number of participants: </h4>
     {participants}
+    {participantList}
     <br/>
     <h3>Description: </h3>
     {description}

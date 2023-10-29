@@ -22,16 +22,23 @@ export const Login = ({ className }: LoginProps) => {
         window.location.replace('/home')
     }
 
-    function login()
+    async function fetchJson(url)
+    {
+        return fetch(url)
+        .then((response)=>response.json())
+        .then((responseJson)=>{return responseJson});
+    }
+    
+    async function login()
     {
         const fetchUrl = 'http://localhost:8000/api/staffs/' + (document.getElementById('staffid') as HTMLInputElement).value + '/';
+        const staffDetails = await fetchJson(fetchUrl)
         const password = (document.getElementById('password') as HTMLInputElement).value
-        fetchGet(fetchUrl, setStaffInfo)
-        
-        
-        if (password == staffInfo['firstname'])
+        // setTimeout(() => fetchGet(fetchUrl, setStaffInfo), 2000)
+        console.log(staffDetails)
+        if (password == staffDetails.firstname)
         {
-            setRole(staffInfo['privilegeid'])
+            setRole(staffDetails.privilegeid)
             console.log(role)
         } else
         {
@@ -42,7 +49,7 @@ export const Login = ({ className }: LoginProps) => {
     return <div className="Login">
         <h1 style={{color:"black"}}>Welcome to eHealth Clinical Trial</h1>
 
-        <form style={{color:"black", fontSize:"20px"}}>
+        <form style={{color:"whiblate", fontSize:"20px"}}>
         <label>Staff ID:</label>
         <br />
         <input type="text" id='staffid'/>

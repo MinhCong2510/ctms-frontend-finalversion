@@ -44,13 +44,18 @@ export const Trial = ({ className , id, status, name, participants}: TrialProps)
     }, [])
     
     let patientCount = 0; // number of patients in the trial
+
     
-    const listPatients = patients.map(patient => 
+    const listPatients = patients.filter((patient) => patient['trialid'] == trialId)
+    .map((patient) => 
         {
-            if (patient['trialid'] == trialId)
-            {
-                patientCount++;
-            }
+            patientCount++
+            return(<div>
+                Patient ID: {patient['patientid']}
+                <br/>
+                Patient Name: {patient['firstname']} {patient['lastname']}
+                <br/>
+            </div>)
         }
     )
 
@@ -81,7 +86,7 @@ export const Trial = ({ className , id, status, name, participants}: TrialProps)
                 <div className={classNames("Trial_HomePage_ContentBlock")}>
             </div>
             <div className="padding">
-                <Trial_HomePage_Description name={info['trialname']} description={info['trialdescription']} status={info['status']} dateCreated={info['datecreated']} participants={patientCount}/>
+                <Trial_HomePage_Description name={info['trialname']} description={info['trialdescription']} status={info['status']} dateCreated={info['datecreated']} participants={patientCount} participantList={listPatients}/>
             <div className={classNames("TrialOrg_Header", "Trial_HomePage_Description")}>
             <h3 >Observations</h3>
                 <AddObservation_Button/> 

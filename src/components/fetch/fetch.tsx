@@ -1,6 +1,6 @@
-export function fetchGet(url:string, stateSetter: (arg0: any) => void)
+export async function fetchGet(url:string, stateSetter: (arg0: any) => void)
     {
-        fetch(url)
+        return fetch(url)
         .then((response) => 
         {
             if(!response.ok) {
@@ -11,10 +11,8 @@ export function fetchGet(url:string, stateSetter: (arg0: any) => void)
                     return response.json();
         }}
         )
-        .then((data) => {
-            console.log(data);
-            stateSetter(data);
-        })
+        // .then((data) => console.log(data))
+        .then((data) => stateSetter(data))
         .catch((err) => {
             throw new Error('GET did not execute successfully: ' + err);
         });

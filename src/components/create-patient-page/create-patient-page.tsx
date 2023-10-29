@@ -80,9 +80,12 @@ export const CreatePatient_Page = ({ className }: CreatePatient_PageProps) => {
                   <option value="0">Female</option>
                 </select>
                 </div>
+                <div>
+                Date of Birth:
                 <input type='date' id='dob'>
 
                 </input>
+                </div>
                 <div>
                 Assign to trial: 
                 <select  id="trial-select">
