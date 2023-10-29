@@ -230,8 +230,7 @@ button:focus-visible {
     align-items: center;
     justify-items: center;
     color: #FF0000;
-    vertical-align: middle;
-    background-color: gray;
+    vertical-align: middle; 
 }
 
 button#login {

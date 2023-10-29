@@ -10,7 +10,6 @@ export interface Observation_SummaryReportProps {
     treatment?: string;
     staff?: string;
 
-
 }
 
 /**

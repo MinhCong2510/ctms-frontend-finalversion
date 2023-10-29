@@ -47,9 +47,10 @@ export const HomePage = ({ className }: HomePageProps) => {
 
     const listTrials = trials.map(trial => 
         // <li>{contact.id} | {contact.name}</li>
-        <Trial_BlockInfo key={trial['trialid']} id={trial['trialid']} context={trial['status']}/>
+        {
+            if (trial['trialid'] != -1) return (<Trial_BlockInfo key={trial['trialid']} id={trial['trialid']} context={trial['status']}/>)
+        }
     )
-
     const listPatients = patients.map(patient => 
         <Patiet_blockinfo
         id={patient['patientid']}
@@ -96,39 +97,6 @@ export const HomePage = ({ className }: HomePageProps) => {
                 {listOrganisations}
             </div>
             <div className={classNames(styles.TrialsPageHeader, 'TrialOrg_Header')}>
-            <h1>Staff</h1>
-            </div>
-            <div className="Trial_HomePage">
-            <Staff_BlockInfo
-                    id="123"
-                    firstName="[props.firstName]"
-                    lastName="[props.lastName]"
-                    trialInvolved="[props.trialInvolved]" 
-                    />
-                    <Staff_BlockInfo
-                    id="123"
-                    firstName="[props.firstName]"
-                    lastName="[props.lastName]"
-                    trialInvolved="[props.trialInvolved]" 
-                    />
-                    <Staff_BlockInfo
-                    id="123"
-                    firstName="[props.firstName]"
-                    lastName="[props.lastName]"
-                    trialInvolved="[props.trialInvolved]" 
-                    />
-                    <Staff_BlockInfo
-                    id="123"
-                    firstName="[props.firstName]"
-                    lastName="[props.lastName]"
-                    trialInvolved="[props.trialInvolved]" 
-                    />
-                    <Staff_BlockInfo
-                    id="123"
-                    firstName="[props.firstName]"
-                    lastName="[props.lastName]"
-                    trialInvolved="[props.trialInvolved]" 
-                    />
             </div>
         </div>
     </div>

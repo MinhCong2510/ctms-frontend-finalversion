@@ -10,7 +10,7 @@ import { Trial_Observation } from '../trial-observation/trial-observation';
 import { Observation_SummaryReport } from '../observation-summary-report/observation-summary-report';
 import { AddObservation_Button } from '../add-observation-button/add-observation-button';
 import { useEffect, useState } from 'react';
-import { fetchGet } from '../fetch/fetch';
+import { fetchGet, fetchPut } from '../fetch/fetch';
 
 export interface TrialProps {
     className?: string;
@@ -44,21 +44,39 @@ export const Trial = ({ className , id, status, name, participants}: TrialProps)
     }, [])
     
     let patientCount = 0; // number of patients in the trial
+
     
-    const listPatients = patients.map(patient => 
+    const listPatients = patients.filter((patient) => patient['trialid'] == trialId)
+    .map((patient) => 
         {
-            if (patient['trialid'] == trialId)
-            {
-                patientCount++;
-            }
+            patientCount++
+            return(<div>
+                Patient ID: {patient['patientid']}
+                <br/>
+                Patient Name: {patient['firstname']} {patient['lastname']}
+                <br/>
+            </div>)
         }
     )
 
+    function finishTrial()
+    {
+        fetchPut('http://localhost:8000/api/trials/', trialId, {
+            trialname: info['trialname'],
+            trialdescription: info['trialdescription'],
+            organisationid: info['organisationid'],
+            status: 'Finished',
+        })
+    }
+    
     const listObservations = observations
-        .filter((observation) => observation['trialid'] == trialId)
-        .map(observation => 
-            <Observation_SummaryReport date={observation['date']} treatment={observation['treatment']} staff={observation['staffid']}/>
-            )
+    .filter((observation) => observation['trialid'] == trialId)
+    .map(observation => 
+        { 
+            console.log(observation)
+            return<Observation_SummaryReport date={observation['date']} treatment={observation['treatment']} staff={observation['staffid']}/>
+        })
+        console.log(listObservations)
     
     return (
         <div>
@@ -68,7 +86,7 @@ export const Trial = ({ className , id, status, name, participants}: TrialProps)
                 <div className={classNames("Trial_HomePage_ContentBlock")}>
             </div>
             <div className="padding">
-                <Trial_HomePage_Description name={info['trialname']} description={info['trialdescription']} status={info['status']} dateCreated={info['datecreated']}/>
+                <Trial_HomePage_Description name={info['trialname']} description={info['trialdescription']} status={info['status']} dateCreated={info['datecreated']} participants={patientCount} participantList={listPatients}/>
             <div className={classNames("TrialOrg_Header", "Trial_HomePage_Description")}>
             <h3 >Observations</h3>
                 <AddObservation_Button/> 
@@ -76,8 +94,10 @@ export const Trial = ({ className , id, status, name, participants}: TrialProps)
             {listObservations}
         </div>
         </div>
-            <PopTrigger />
+            <div onClick={finishTrial}>
+                
+            <PopTrigger/>
             </div>
-    
+            </div>
         )
     };

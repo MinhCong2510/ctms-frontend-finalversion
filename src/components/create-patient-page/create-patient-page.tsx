@@ -43,15 +43,23 @@ export const CreatePatient_Page = ({ className }: CreatePatient_PageProps) => {
 
     function createPatient()
     {
-      fetchPost('http://localhost:8000/api/patients/', {
-        firstname: (document.getElementById('firstname') as HTMLInputElement).value,
-        lastname: (document.getElementById('lastname') as HTMLInputElement).value,
-        m_gender: (document.getElementById('gender-select') as HTMLInputElement).value,
-        dateofbirth: (document.getElementById('dob') as HTMLInputElement).value,
-        trialid: (document.getElementById('trial-select') as HTMLInputElement).value,
-      })
-      const redirectUrl = '/patients/';
-        window.location.replace(redirectUrl)
+      try
+      {
+        fetchPost('http://localhost:8000/api/patients/', {
+          firstname: (document.getElementById('firstname') as HTMLInputElement).value,
+          lastname: (document.getElementById('lastname') as HTMLInputElement).value,
+          m_gender: (document.getElementById('gender-select') as HTMLInputElement).value,
+          dateofbirth: (document.getElementById('dob') as HTMLInputElement).value,
+          trialid: (document.getElementById('trial-select') as HTMLInputElement).value,
+        })
+
+        const redirectUrl = '/patients/';
+        // alert('Added new patient')
+        // window.location.replace('/patients')S
+      } catch(e)
+      {
+        alert('An error has occurred:' + e)
+      }
     }
     return <div>
 
@@ -72,12 +80,12 @@ export const CreatePatient_Page = ({ className }: CreatePatient_PageProps) => {
                   <option value="0">Female</option>
                 </select>
                 </div>
-                <div className="TrialOrg_Header" >
-                  Date of Birth: <DateInput
-                    value={date} 
-                    onChange={handleInput}
-                    placeholder="Date of Birth: ">
-                </DateInput></div>
+                <div>
+                Date of Birth:
+                <input type='date' id='dob'>
+
+                </input>
+                </div>
                 <div>
                 Assign to trial: 
                 <select  id="trial-select">
